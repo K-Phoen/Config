@@ -34,7 +34,7 @@ endif
 " detected filetype. Per default Debian Vim only load filetype specific
 " plugins.
 if has("autocmd")
-  filetype indent on
+    filetype indent on
 endif
 
 set autoread
@@ -44,9 +44,9 @@ set autoread
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes) in terminals
 
@@ -56,12 +56,40 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+" largeur de colonne
+set textwidth=80
+
 " Afficher les numéros de lignes
 set number
 
+" Folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" Smart completion
+function! SmartComplete()
+	let line = getline('.')                         " curline
+	let substr = strpart(line, -1, col('.')+1)      " from start to cursor
+	let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+	let has_period = match(substr, '\.') != -1      " position of period, if any
+	let has_slash = match(substr, '\/') != -1       " position of slash, if any
+	if (!has_period && !has_slash)
+		return "\<C-X>\<C-P>"                         " existing text matching
+	elseif ( has_slash )
+		return "\<C-X>\<C-F>"                         " file matching
+	else
+		return "\<C-X>\<C-O>"                         " plugin matching
+	endif
+endfunction
+
+" Call smart completion when pressing Ctrl-Space
+inoremap <C-Space> <c-r>=SmartComplete()<CR>
+imap <C-@> <C-Space>
+
 " Indentation automatique
 set autoindent
-
 set smartindent
 set tabstop=4
 set shiftwidth=4

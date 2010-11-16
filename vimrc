@@ -37,6 +37,10 @@ if has("autocmd")
     filetype indent on
 endif
 
+if has("autocmd") 
+    autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
+endif 
+
 set autoread
 
 " The following are commented out as they cause vim to behave a lot

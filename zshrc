@@ -69,6 +69,9 @@ alias ssam='ssh 192.168.1.22'
 alias ssvps='ssh root@95.130.15.21 -p 2001'
 alias ssh-x='ssh -c arcfour,blowfish-cbc -XC'
 
+alias dual_screen='xrandr --output VGA1 --mode 1280x1024 --same-as LVDS1'
+alias mono_screan='xrandr --output LVDS1 --mode 1024x600'
+
 #alias git
 alias gpl='git pull'
 alias gps='git push'

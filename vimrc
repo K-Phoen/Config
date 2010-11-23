@@ -99,6 +99,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Sauvegarde la session lors de la fermeture de vim
+autocmd VimLeavePre * :mksession! ~/.stopped.vim
+
 " UTF8
 if has("multi_byte")
     set encoding=utf-8

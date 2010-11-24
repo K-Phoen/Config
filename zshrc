@@ -11,7 +11,7 @@ promptinit
 autoload -Uz vcs_info
  
 #zstyle ':vcs_info:*' stagedstr '%F{28}●'
-zstyle ':vcs_info:*' unstagedstr '%F !' # modifs sur des fichiers trackés
+zstyle ':vcs_info:*' unstagedstr ' !' # modifs sur des fichiers trackés
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
 zstyle ':vcs_info:*' enable git svn
@@ -19,7 +19,7 @@ precmd () {
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
         zstyle ':vcs_info:*' formats ' on %F{green}%b%c%u%F{black}'
     } else {
-        zstyle ':vcs_info:*' formats ' on %F{green}%b%c%u%F?%F{black}' # fichiers non trackés détectés
+        zstyle ':vcs_info:*' formats ' on %F{green}%b%c%u?%F{black}' # fichiers non trackés détectés
     }
  
     vcs_info

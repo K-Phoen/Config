@@ -13,8 +13,8 @@ autoload -Uz vcs_info
 #zstyle ':vcs_info:*' stagedstr '%F{28}●'
 zstyle ':vcs_info:*' unstagedstr ' !' # modifs sur des fichiers trackés
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
-zstyle ':vcs_info:*' enable git svn
+#zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r' inutile puisque sv[nk]|bzr désactivés
+zstyle ':vcs_info:*' enable git # svn hg # vcs activés
 precmd () {
     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
         zstyle ':vcs_info:*' formats ' on %F{green}%b%c%u%F{black}'

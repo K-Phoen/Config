@@ -30,7 +30,8 @@ alias aptupgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 alias grep='grep --color=auto'
 alias lh='ls -lh --color=auto'
 
-alias ssvps='ssh kevin@95.130.15.21 -p 2001'
+alias ssvps='ssh kevin@46.4.131.201 -p 2001'
+alias ssovh='ssh kevin@46.105.6.226'
 alias ssh-x='ssh -c arcfour,blowfish-cbc -XC'
 
 #alias dual_screen='xrandr --output VGA1 --mode 1280x1024 --same-as LVDS1'

@@ -46,7 +46,7 @@ import XMonad.Hooks.SetWMName
 myModMask       = mod1Mask
 
 -- The default number of workspaces (virtual screens) and their names.
-myWorkspaces    = ["Web", "Dev", "Music", "Foo"]
+myWorkspaces    = ["Web", "Dev", "Music", "Files", "Foo"]
 
 -- Width of the window border in pixels.
 myBorderWidth   = 1

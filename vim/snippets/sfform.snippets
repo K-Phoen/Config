@@ -1,0 +1,44 @@
+snippet unset
+	unset(
+		$this['${1:row}']${2:,}
+	);
+snippet widgetSchema
+	$this->widgetSchema['${1:row}'] = new ${2: widget}();
+snippet validatorSchema
+	$this->validatorSchema['${1:row}'] = new ${2: validator}();
+snippet setLabels
+	$this->widgetSchema->setLabels(array(
+		'${1:row}' => '${2:name}',
+	));
+snippet setWidget
+	$this->setWidget('${1:name}', new ${2:widget});
+snippet setValidator
+	$this->setValidator('${1:name}', new ${2:validator});
+snippet setDefault
+	$this->setDefault('${1:name}', '${2:default value}');
+snippet embedForm
+	$this->embedForm('${1:name model}', ${2: form});
+snippet mergeForm
+	$this->mergeForm('${1:name form}');
+snippet doUpdateObject
+	protected function doUpdateObject($values)
+	{
+		${1}
+	}
+snippet doSave
+	protected function doSave(PropelPDO $con)
+	{
+		${1}
+	}
+snippet updateObjectEmbeddedForms
+	public function updateObjectEmbeddedForms($values, $forms = null)
+	{
+		${1}
+	}
+snippet saveEmbeddedForms
+	public function saveEmbeddedForms($con = null, $forms = null)
+	{
+		${1}
+	}
+
+	

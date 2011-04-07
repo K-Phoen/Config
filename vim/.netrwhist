@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/etc/apache2/sites-available'
-let g:netrw_dirhist_2='/var/log'
-let g:netrw_dirhist_3='/home/kevin/lugaru/cmake'
-let g:netrw_dirhist_4='/home/kevin/Bureau'
-let g:netrw_dirhist_5='/etc/nginx/sites-available'
-let g:netrw_dirhist_6='/media/OS/Users/Kévin/Desktop/WebOfPower/WebOfPower/VisualStudio2010/Applications/Tests/testCardStack'
-let g:netrw_dirhist_7='/home/kevin/Dropbox/2è année/Projet tut'/Javacc'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/kevin/www/test_plugin/plugins/sfPropel15Plugin'

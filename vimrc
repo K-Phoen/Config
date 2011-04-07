@@ -1,27 +1,24 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
+"Remove ALL autocommands for the current group.
+:autocmd!
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
+"Presentation
+colorscheme delek
+" cursor (line under it, reverse color)
+set cursorline
+" line number
+" hi LineNr ctermfg=Darkgray guifg=#3D3D3D
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
+if has("syntax")
+	syntax on
+endif
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-syntax on
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=light
+" Behaviors
+set nocompatible
+set encoding=utf-8
+set backspace=indent,eol,start
+set autoindent
+set ruler
+set number
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -30,47 +27,14 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
-" Uncomment the following to have Vim load indentation rules according to the
-" detected filetype. Per default Debian Vim only load filetype specific
-" plugins.
-if has("autocmd")
-    filetype indent on
-endif
+" enable to move over lines with right and left arrows
+set whichwrap=b,s,<,>,[,]
 
-if has("autocmd") 
-    autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
-endif 
-
-set autoread
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes) in terminals
-
-" Source a global configuration file if available
-" XXX Deprecated, please move your changes here in /etc/vim/vimrc
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
-
-" largeur de colonne
-set textwidth=80
-
-" Afficher les numéros de lignes
-set number
-
-" Folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+" redefine tabs
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 " Smart completion
 function! SmartComplete()
@@ -92,18 +56,76 @@ endfunction
 inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
 
-" Indentation automatique
-set autoindent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+" status line
+" set statusline=%F%m%=%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [LINE=%l]\ [Col=%v]\ [%p%%]
+set laststatus=2
+
+hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
+hi Modified guibg=orange guifg=black ctermbg=lightred ctermfg=black
+
+function! MyStatusLine(mode)
+    let statusline=""
+    if a:mode == 'Enter'
+        let statusline.="%#StatColor#"
+    endif
+    let statusline.="\(%n\)\ %f\ "
+    if a:mode == 'Enter'
+        let statusline.="%*"
+    endif
+    let statusline.="%#Modified#%m"
+    if a:mode == 'Leave'
+        let statusline.="%*%r"
+    elseif a:mode == 'Enter'
+        let statusline.="%r%*"
+    endif
+    let statusline .= "\ (Line %l/%L,\ Col %c)\ %P%=%h%w\ %y\ [%{&encoding}:%{&fileformat}]\ \ "
+    return statusline
+endfunction
+
+au WinEnter * setlocal statusline=%!MyStatusLine('Enter')
+au WinLeave * setlocal statusline=%!MyStatusLine('Leave')
+set statusline=%!MyStatusLine('Enter')
+
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi StatColor guibg=orange ctermbg=lightred
+  elseif a:mode == 'r'
+    hi StatColor guibg=#e454ba ctermbg=magenta
+  elseif a:mode == 'v'
+    hi StatColor guibg=#e454ba ctermbg=magenta
+  else
+    hi StatColor guibg=red ctermbg=red
+  endif
+endfunction 
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
+
+" enable filetypes
+filetype on
+filetype plugin on
 
 " Sauvegarde la session lors de la fermeture de vim
 autocmd VimLeavePre * :mksession! ~/.stopped.vim
 
-" UTF8
-if has("multi_byte")
-    set encoding=utf-8
-    setglobal fileencoding=utf-8
-endif
+" Plugin specifics
+"=================
+
+" define my name for snipmate plugin
+let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
+let g:snips_company = ''
+
+" activate symfony for php files
+autocmd FileType php set ft=php.symfony
+
+" language specifics
+"===================
+
+" php
+autocmd FileType php noremap <F7> :!php -l %<CR>
+
+" symfony
+autocmd FileType php noremap <F8> :SfSwitchView <CR>
+
+" javascript
+autocmd FileType javascript noremap <F7> :!gjslint %<CR>

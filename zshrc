@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/Config\ Files/oh-my-zsh
+export ZSH=$HOME/Config/oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -36,6 +36,11 @@ alias ssh-x='ssh -c arcfour,blowfish-cbc -XC'
 
 #alias dual_screen='xrandr --output VGA1 --mode 1280x1024 --same-as LVDS1'
 #alias mono_screan='xrandr --output LVDS1 --mode 1024x600'
+
+alias a2restart='sudo /etc/init.d/apache2 restart'
+alias a2reload='sudo /etc/init.d/apache2 reload'
+alias n2restart='sudo /etc/init.d/nginx restart'
+alias n2reload='sudo /etc/init.d/nginx reload'
 
 # git
 alias gpl='git pull'

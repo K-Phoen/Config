@@ -19,6 +19,8 @@ set backspace=indent,eol,start
 set autoindent
 set ruler
 set number
+set nobackup
+set noswapfile
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file

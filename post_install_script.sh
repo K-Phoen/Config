@@ -25,9 +25,7 @@ echo "[+] Repo cloné"
 
 
 echo "[-] Mise en place des fichiers de configuration"
-ln -s Config/zshrc .zshrc
-ln -s Config/vimrc .vimrc
-ln -s Config/vim .vim
+./link_to_conf_files.sh
 echo "[+] Configuration OK"
 
 echo "[-] Changement du shell par défaut"

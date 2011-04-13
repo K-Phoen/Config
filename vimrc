@@ -125,6 +125,7 @@ autocmd FileType php set ft=php.symfony
 
 " php
 autocmd FileType php noremap <F7> :!php -l %<CR>
+autocmd FileType php noremap <F9> :!php %<CR>
 
 " symfony
 autocmd FileType php noremap <F8> :SfSwitchView <CR>

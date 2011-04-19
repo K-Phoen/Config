@@ -1,5 +1,8 @@
 "Remove ALL autocommands for the current group.
-:autocmd!
+":autocmd!
+
+" Set title on X window
+set title
 
 "Presentation
 colorscheme delek
@@ -19,8 +22,10 @@ set backspace=indent,eol,start
 set autoindent
 set ruler
 set number
-set nobackup
-set noswapfile
+
+set nobackup                        " Don't make a backup before overwriting a file.
+set nowritebackup                   " And again.
+set noswapfile                      " Use an SCM instead of swap files
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -57,6 +62,14 @@ endfunction
 " Call smart completion when pressing Ctrl-Space
 inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
+
+" Enable folding by indentation
+" Use: zc, zo, zC, zO, zR, zM
+set foldmethod=indent
+highlight Folded ctermfg=red
+highlight FoldColumn ctermfg=white
+map zz zjzo
+set nofoldenable
 
 " status line
 " set statusline=%F%m%=%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [LINE=%l]\ [Col=%v]\ [%p%%]
@@ -110,12 +123,25 @@ filetype plugin on
 " Sauvegarde la session lors de la fermeture de vim
 autocmd VimLeavePre * :mksession! ~/.stopped.vim
 
+" Highlight unwanted spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " Plugin specifics
 "=================
 
 " define my name for snipmate plugin
 let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
 let g:snips_company = ''
+
+" Ctags
+set nocp
+set tags+=~/.vim/tags/symfony
+set tags+=tags
 
 " activate symfony for php files
 autocmd FileType php set ft=php.symfony
@@ -126,6 +152,8 @@ autocmd FileType php set ft=php.symfony
 " php
 autocmd FileType php noremap <F7> :!php -l %<CR>
 autocmd FileType php noremap <F9> :!php %<CR>
+let php_htmlInStrings = 1
+let php_sql_query = 1  
 
 " symfony
 autocmd FileType php noremap <F8> :SfSwitchView <CR>

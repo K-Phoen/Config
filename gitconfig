@@ -1,8 +1,14 @@
 [user]
 	name = kphoen
 	email = geek63@gmail.com
+
 [color]
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan

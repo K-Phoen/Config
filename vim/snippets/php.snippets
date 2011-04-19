@@ -31,10 +31,10 @@ snippet $_ SERVER['...']
 snippet $_ SESSION['...']
 	$_SESSION['${1:variable}']${2}
 # Start Docblock
-snippet /*
+snippet /**
 	/**
 	 * ${1}
-	 **/
+	 */
 # Class - post doc
 snippet doc_cp
 	/**
@@ -129,23 +129,23 @@ snippet doc_i
 	 *
 	 * @package ${3:default}
 	 * @author ${4:`g:snips_author`}
-	 **/
+	 */
 	interface ${1:}
 	{${5}
 	} // END interface $1
 # class ...
-#snippet class snipmate php class #2
-#	/**
-#	 * ${1}
-#	 **/
-#	class ${2:ClassName}
-#	{
-#		${3}
-#		function ${4:__construct}(${5:argument})
-#		{
-#			${6:// code...}
-#		}
-#	}
+snippet class snipmate php class #2
+/**
+ * ${1}
+ */
+class ${2:ClassName}
+{
+	${3}
+	function ${4:__construct}(${5:argument})
+	{
+		${6:// code...}
+	}
+}
 # define(...)
 snippet construct
 	/**

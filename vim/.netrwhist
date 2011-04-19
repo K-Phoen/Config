@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/kevin/www/test_plugin/plugins/sfPropel15Plugin'
 let g:netrw_dirhist_2='/home/kevin/www/animes-live-sf/plugins/sfDoctrineGuardPlugin/modules'
+let g:netrw_dirhist_3='/home/kevin/www/animes-live-sf/apps/frontend/modules/articles/actions'
+let g:netrw_dirhist_4='/home/kevin/www/animes-live-sf/lib/model'
+let g:netrw_dirhist_5='/home/kevin/www/animes-live-sf/plugins/sfContactFormPlugin'
+let g:netrw_dirhist_6='/home/kevin/www/animes-live-sf/web/js'
+let g:netrw_dirhist_7='/home/kevin/www/animes-live-sf/config'

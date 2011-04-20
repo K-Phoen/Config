@@ -10,7 +10,7 @@ sudo apt-get -y install aptitude
 
 sudo aptitude update && sudo aptitude safe-upgrade
 
-sudo aptitude install -y git zsh geany pidgin gnome-do filezilla xchat dia monodevelop qtcreator vlc vim chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg chromium-codecs-ffmpeg-extra chromium-codecs-ffmpeg-nonfree netbeans eclipse
+sudo aptitude install -y git zsh geany pidgin gnome-do filezilla xchat dia monodevelop qtcreator vlc vim chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg chromium-codecs-ffmpeg-extra chromium-codecs-ffmpeg-nonfree netbeans eclipse exuberant-ctags
 echo "[+] Installation OK"
 
 

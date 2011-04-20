@@ -36,7 +36,18 @@ set softtabstop=2   " when hitting tab or backspace, how many spaces should a
                     " tab be (see expandtab)
 set tabstop=2       " real tabs should be 2
 
-" status line
+
+" Theme setup
+"===========
+
+let &t_Co=256         " force the 256-color mode
+set background=light
+colorscheme mustang
+
+
+" Status line
+"=============
+
 " set statusline=%F%m%=%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [LINE=%l]\ [Col=%v]\ [%p%%]
 set laststatus=2
 
@@ -107,14 +118,6 @@ endfunction
 " Call smart completion when pressing Ctrl-Space
 inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
-
-
-" Theme setup
-"===========
-
-let &t_Co=256         " force the 256-color mode
-set background=light
-colorscheme mustang
 
 
 " Plugin specifics

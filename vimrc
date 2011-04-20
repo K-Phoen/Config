@@ -130,6 +130,8 @@ let g:snips_company = ''
 " activate symfony for php files
 autocmd FileType php set ft=php.symfony
 
+" taglist plugin
+let Tlist_Show_One_File = 1 " only displays the tags for the current buffer
 
 " Language specifics
 "===================

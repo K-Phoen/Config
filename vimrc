@@ -110,14 +110,19 @@ function! SmartComplete()
 
 	if ( has_slash )
 		return "\<C-X>\<C-F>"                         " file matching
-	else
-		return "\<C-X>\<C-O>"                         " omnifunc
+	elseif &omnifunc != ''
+		return "\<C-X>\<C-O>"                         " omnifunc if available
+  else
+    return "\<C-X>\<C-P>"                         " existing text matching
 	endif
 endfunction
 
 " Call smart completion when pressing Ctrl-Space
 inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
+
+" Toggle line numbers and fold column for easy copying:
+nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 
 " Plugin specifics
@@ -132,6 +137,8 @@ autocmd FileType php set ft=php.symfony
 
 " taglist plugin
 let Tlist_Show_One_File = 1 " only displays the tags for the current buffer
+nnoremap <silent> <F10> :TlistToggle<CR>
+
 
 " Language specifics
 "===================

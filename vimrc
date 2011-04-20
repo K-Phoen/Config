@@ -109,6 +109,14 @@ inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
 
 
+" Theme setup
+"===========
+
+let &t_Co=256         " force the 256-color mode
+set background=light
+colorscheme mustang
+
+
 " Plugin specifics
 "=================
 

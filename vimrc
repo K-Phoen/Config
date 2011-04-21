@@ -150,7 +150,7 @@ let php_htmlInStrings = 1
 let php_sql_query = 1
 
 " symfony
-autocmd FileType symfony noremap <F8> :SfSwitchView<CR>
+autocmd FileType php noremap <F8> :SfSwitchView<CR>
 
 " javascript
 autocmd FileType javascript noremap <F7> :!gjslint %<CR>

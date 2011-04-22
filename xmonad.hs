@@ -98,7 +98,7 @@ myManageHook = composeAll
     [ manageHook gnomeConfig
     -- needs: import XMonad.Hooks.ManageHelpers (isFullscreen,doFullFloat)
     , isFullscreen --> doFullFloat
-    , ressource =? "file_properties"    --> doFloat
+    , resource =? "file_properties"    --> doFloat
     , className =? "Gimp"               --> doFloat
     , className =? "vlc"                --> doFloat
 

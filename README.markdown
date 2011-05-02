@@ -1,8 +1,8 @@
-Vim Config
-==========
+Vim
+===
 
 * Syntax highlighting
-* Filetype plugin (with indent) 
+* Filetype plugin (with indent)
 * Jump to the last position when reopening a file
 * Improved status line
 * Highlights unwanted spaces
@@ -15,3 +15,25 @@ Vim Config
 * Taglist plugin
 * Autocompletion (with omnifunc)
 * etc.
+
+
+Xmonad
+======
+
+* Gnome integration
+* Some usefull shortcuts
+
+
+Zsh
+===
+
+* Based on oh-my-zsh
+* Customized theme
+* Git plugin
+* Some usefull aliases
+
+
+Git
+===
+
+* Colors while viewing a diff or displaying the status

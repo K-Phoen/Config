@@ -129,7 +129,7 @@ nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 "=================
 
 " define my name for snipmate plugin
-let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
+let g:snips_author = 'Kevin Gomez <kevin_gomez@carpe-hora.com>'
 let g:snips_company = ''
 
 " activate symfony for php files
@@ -146,6 +146,7 @@ nnoremap <silent> <F10> :TlistToggle<CR>
 " php
 autocmd FileType php noremap <F7> :!php -l %<CR>
 autocmd FileType php noremap <F9> :!php %<CR>
+autocmd FileType php noremap <C-b> :Bp<CR> " set/remove a breakpoint
 let php_htmlInStrings = 1
 let php_sql_query = 1
 

@@ -49,5 +49,9 @@ alias gst='git status'
 alias gci='git commit'
 
 # petit hack pour faire fonctionner les raccourcis CTRL-LEFT et CTRL-RIGHT
+# et la touche SUPPR
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey "^[[3~"   delete-char
+bindkey '^[OH'    beginning-of-line
+bindkey '^[OF'    end-of-line

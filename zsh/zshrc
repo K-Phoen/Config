@@ -5,6 +5,9 @@ export ZSH=$HOME/Config/zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="kphoen"
 
+# manage ssh keys
+keychain --quiet --agents ssh id_rsa
+
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 

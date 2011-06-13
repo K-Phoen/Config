@@ -1,0 +1,5 @@
+# manage ssh keys
+keychain --quiet --agents ssh id_rsa
+
+# add dox to the $PATH
+export PATH=$PATH:~/node_modules/dox/bin

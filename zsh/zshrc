@@ -5,9 +5,6 @@ export ZSH=$HOME/Config/zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="kphoen"
 
-# manage ssh keys
-keychain --quiet --agents ssh id_rsa
-
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
@@ -23,10 +20,10 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+[ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
+
 # quelques préférences
 export EDITOR=/usr/bin/vim
-export PATH=$PATH:~/sdk_android/tools
-export PATH=$PATH:~/node_modules/dox/bin
 export PAGER=most
 
 # des alias utiles
@@ -36,7 +33,7 @@ alias lh='ls -lh --color=auto'
 
 alias ssvps='ssh kevin@46.4.131.201 -p 2001'
 alias ssovh='ssh kevin@46.105.6.226'
-alias ssh-x='ssh -c arcfour,blowfish-cbc -XC'
+alias sshx='ssh -c arcfour,blowfish-cbc -XC'
 
 #alias dual_screen='xrandr --output VGA1 --mode 1280x1024 --same-as LVDS1'
 #alias mono_screan='xrandr --output LVDS1 --mode 1024x600'
@@ -47,10 +44,10 @@ alias n2restart='sudo /etc/init.d/nginx restart'
 alias n2reload='sudo /etc/init.d/nginx reload'
 
 # git
-alias gpl='git pull'
-alias gps='git push'
+#alias gpl='git pull'
+#alias gps='git push'
 alias gst='git status'
-alias gci='git commit'
+#alias gci='git commit'
 
 # petit hack pour faire fonctionner les raccourcis CTRL-LEFT et CTRL-RIGHT
 # et la touche SUPPR

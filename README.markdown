@@ -31,6 +31,7 @@ Zsh
 * Customized theme
 * Git plugin
 * Some usefull aliases
+* Easy _machine specific_ configuration
 
 
 Git

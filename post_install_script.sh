@@ -3,7 +3,7 @@
 cd ~
 
 
-echo "[-] Installation des paquets" 
+echo "[-] Installation des paquets"
 sudo add-apt-repository ppa:chromium-daily/ppa
 
 sudo apt-get -y install aptitude

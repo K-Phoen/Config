@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 # quelques préférences
 export EDITOR=/usr/bin/vim
 export PAGER=most
+export PATH=$PATH:~/bin
 
 # des alias utiles
 alias aptupgrade='sudo aptitude update && sudo aptitude safe-upgrade'

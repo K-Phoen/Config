@@ -39,9 +39,21 @@ set softtabstop=2   " when hitting tab or backspace, how many spaces should a
                     " tab be (see expandtab)
 set tabstop=2       " real tabs should be 2
 
+
+" Search
+"=======
+
 set hlsearch        " Highlight search matches
+set incsearch       " ...dynamically as they are typed.
 " Clear search highlight
 map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
+
+" These two options, when set together, will make /-style searches
+" case-sensitive only if there is a capital letter in the search expression.
+" *-style searches continue to be consistently case-sensitive.
+set ignorecase
+set smartcase
+
 
 
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste

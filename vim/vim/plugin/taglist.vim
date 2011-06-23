@@ -212,7 +212,7 @@ if !exists('loaded_taglist')
     if !exists('Tlist_Auto_Highlight_Tag')
         let Tlist_Auto_Highlight_Tag = 1
     endif
-    
+
     " Automatically highlight the current tag on entering a buffer
     if !exists('Tlist_Highlight_Tag_On_BufEnter')
         let Tlist_Highlight_Tag_On_BufEnter = 1
@@ -350,7 +350,7 @@ let loaded_taglist = 'available'
 " Variable name format:
 "
 "       s:tlist_def_{vim_ftype}_settings
-" 
+"
 " vim_ftype - Filetype detected by Vim
 "
 " Value format:
@@ -671,7 +671,7 @@ function! s:Tlist_Log_Msg(msg)
             if len > 3000
                 let s:tlist_msg = strpart(s:tlist_msg, len - 3000)
             endif
-            let s:tlist_msg = s:tlist_msg . strftime('%H:%M:%S') . ': ' . 
+            let s:tlist_msg = s:tlist_msg . strftime('%H:%M:%S') . ': ' .
                         \ a:msg . "\n"
         endif
     endif
@@ -791,6 +791,14 @@ function! s:Tlist_Exe_Cmd_No_Acmds(cmd)
     set eventignore=all
     exe a:cmd
     let &eventignore = old_eventignore
+endfunction
+
+function! s:Tlist_Fix_Ftype(raw_ftype)
+    if match(a:raw_ftype, '\.')
+        return split(a:raw_ftype, '\.')[0]
+    else
+        return a:raw_ftype
+    endif
 endfunction
 
 " Tlist_Skip_File()
@@ -976,7 +984,7 @@ function! s:Tlist_Detect_Filetype(fname)
     let &filetype = old_filetype
     let &eventignore = old_eventignore
 
-    return ftype
+    return s:Tlist_Fix_Ftype(ftype)
 endfunction
 
 " Tlist_Get_Buffer_Filetype
@@ -986,12 +994,12 @@ function! s:Tlist_Get_Buffer_Filetype(bnum)
 
     if bufloaded(a:bnum)
         " For loaded buffers, the 'filetype' is already determined
-        return buf_ft
+        return s:Tlist_Fix_Ftype(buf_ft)
     endif
 
     " For unloaded buffers, if the 'filetype' option is set, return it
     if buf_ft != ''
-        return buf_ft
+        return s:Tlist_Fix_Ftype(buf_ft)
     endif
 
     " Skip non-existent buffers
@@ -2420,7 +2428,7 @@ function! s:Tlist_Process_File(filename, ftype)
         let s:tlist_{fidx}_tag_count = tidx
     endif
 
-    call s:Tlist_Log_Msg('Processed ' . s:tlist_{fidx}_tag_count . 
+    call s:Tlist_Log_Msg('Processed ' . s:tlist_{fidx}_tag_count .
                 \ ' tags in ' . a:filename)
 
     return fidx

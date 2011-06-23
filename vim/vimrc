@@ -39,6 +39,12 @@ set tabstop=2       " real tabs should be 2
 set hlsearch        " Highlight search matches
 
 
+" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+" F2 = toggle paste mode
+nnoremap <F2> :set invpaste paste?<Enter>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
+
 " Theme setup
 "===========
 

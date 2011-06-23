@@ -8,6 +8,9 @@ filetype plugin indent on
 " Set title on X window
 set title
 
+" make plugins smoother
+set lazyredraw
+
 " Add a line under the cursor (reverse color)
 set cursorline
 

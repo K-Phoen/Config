@@ -37,6 +37,8 @@ set softtabstop=2   " when hitting tab or backspace, how many spaces should a
 set tabstop=2       " real tabs should be 2
 
 set hlsearch        " Highlight search matches
+" Clear search highlight
+map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 
 
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
@@ -44,6 +46,7 @@ set hlsearch        " Highlight search matches
 nnoremap <F2> :set invpaste paste?<Enter>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
+
 
 " Theme setup
 "===========
@@ -132,6 +135,8 @@ imap <C-@> <C-Space>
 " Toggle line numbers and fold column for easy copying:
 nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" Sudo to write
+command W w !sudo tee % > /dev/null
 
 " Plugin specifics
 "=================

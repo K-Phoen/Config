@@ -8,7 +8,7 @@ filetype plugin indent on
 " Set title on X window
 set title
 
-" make plugins smoother
+" make plugins smoother (don't redraw while executing macros)
 set lazyredraw
 
 " Add a line under the cursor (reverse color)
@@ -26,7 +26,8 @@ set nobackup                    " Don't make a backup before overwriting a file
 set nowritebackup               " And again.
 set noswapfile                  " Use an SCM instead of swap files
 
-set wildmenu                        " Enhanced command line completion.
+set shell=zsh                   " Use Zsh as default shell
+set wildmenu                    " Enhanced command line completion.
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/cache/**,*/logs/**,*/zend/**,*/bootstrap.* " Ignore certain files
 
 " Uncomment the following to have Vim jump to the last position when reopening

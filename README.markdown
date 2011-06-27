@@ -10,10 +10,12 @@ Vim
 * Snippets: snipmate plugin + customized snippets (based on [vim-symfony-snipmate](https://github.com/themouette/vim-symfony-snipmate))
 * Symfony support:
     * snippets
-    * symfony plugin: http://www.vim.org/scripts/script.php?script_id=2128
-    * vim-symfony plugin : https://github.com/soh335/vim-symfony
-* Taglist plugin
+    * [symfony plugin](http://www.vim.org/scripts/script.php?script_id=2128)
+    * [vim-symfony plugin](https://github.com/soh335/vim-symfony)
+* Taglist-Plus plugin: patched to handle composed filetypes (ex: when using php.symfony filetype, Taglist will search for the php tags file)
 * Autocompletion
+    * PHPComplete
+    * PythonComplete
 * New commands:
     * `:W` will save the current file with sudo
 * etc.
@@ -22,11 +24,16 @@ Vim
 Mappings
 --------
 
+Note: the **map leader** is `,`.
+
 ### All
 
 * `CTRL+L` to toggle the line numbers
 * `CTRL+H` clears the search register
 * `F2` will toggle the paste mode (in which autoindent is disabled)
+* `,s` will start a substitute (`:%s/`)
+* `,<Right>` is a shortcut for `C-]` (go to the declaration of a class, variable, ...).
+* `,<Left>` is a shortcut for `C-T` (go back).
 
 
 ### PHP

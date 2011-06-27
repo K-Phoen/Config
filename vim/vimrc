@@ -11,6 +11,9 @@ set title
 " make plugins smoother (don't redraw while executing macros)
 set lazyredraw
 
+" Redifinition of map leader
+let mapleader = ","
+
 " Add a line under the cursor (reverse color)
 set cursorline
 
@@ -154,21 +157,28 @@ imap <C-@> <C-Space>
 " Toggle line numbers and fold column for easy copying:
 nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" Start a substitute
+map <leader>s :%s/
+
 " Sudo to write
 command W w !sudo tee % > /dev/null
+
+
+map <silent><leader><Left> <C-T>  " go to the declaration of a class, variable, ...)
+map <silent><leader><Right> <C-]> " go back
+
 
 " Plugin specifics
 "=================
 
 " define my name for snipmate plugin
-let g:snips_author = 'Kevin Gomez <kevin_gomez@carpe-hora.com>'
+let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
 let g:snips_company = ''
 
-" activate symfony for php files
-autocmd FileType php set ft=php.symfony
 
 " taglist plugin
-let Tlist_Show_One_File = 1 " only displays the tags for the current buffer
+let Tlist_Show_One_File = 1     " only displays the tags for the current buffer
+let Tlist_Exit_OnlyWindow = 1   " Exit Vim if only the taglist window is currently open
 nnoremap <silent> <F10> :TlistToggle<CR>
 
 
@@ -181,6 +191,8 @@ autocmd FileType php noremap <F9> :!php %<CR>
 autocmd FileType php noremap <C-b> :Bp<CR> " set/remove a breakpoint
 let php_htmlInStrings = 1
 let php_sql_query = 1
+" activate symfony for php files
+autocmd FileType php set ft=php.symfony
 
 " symfony
 autocmd FileType php noremap <F8> :SfSwitchView<CR>

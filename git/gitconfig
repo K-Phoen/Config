@@ -2,11 +2,18 @@
 	name = kphoen
 	email = geek63@gmail.com
 
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [color]
+  ui = true
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
+
+[color "diff"]
+  whitespace = red reverse
 
 [color "status"]
   added = yellow

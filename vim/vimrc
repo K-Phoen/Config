@@ -175,11 +175,12 @@ map <silent><leader><Right> <C-]> " go back
 let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
 let g:snips_company = ''
 
-
-" taglist plugin
-let Tlist_Show_One_File = 1     " only displays the tags for the current buffer
-let Tlist_Exit_OnlyWindow = 1   " Exit Vim if only the taglist window is currently open
-nnoremap <silent> <F10> :TlistToggle<CR>
+" tagbar
+let g:tagbar_left = 1           " display the tagbar on the left side
+set updatetime=500              " show tags' prototype after 500 milliseconds
+let g:tagbar_width = 25         " width in characters of the tagbar
+let g:tagbar_autoshowtag = 1    " always show the current tag in the tagbar
+nnoremap <silent> <F10> :TagbarToggle<CR>
 
 
 " Language specifics

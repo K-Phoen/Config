@@ -12,7 +12,7 @@ Vim
     * snippets
     * [symfony plugin](http://www.vim.org/scripts/script.php?script_id=2128)
     * [vim-symfony plugin](https://github.com/soh335/vim-symfony)
-* Taglist-Plus plugin: patched to handle composed filetypes (ex: when using php.symfony filetype, Taglist will search for the php tags file)
+* [Tagbar plugin](https://github.com/majutsushi/tagbar)
 * Autocompletion
     * PHPComplete
     * PythonComplete

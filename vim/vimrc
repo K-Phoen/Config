@@ -201,7 +201,7 @@ let php_sql_query = 1
 autocmd FileType php set ft=php.symfony
 
 " symfony
-autocmd FileType php noremap <F8> :SfSwitchView<CR>
+autocmd FileType php noremap <F8> :Sview<CR>
 
 " javascript
 autocmd FileType javascript noremap <F7> :!gjslint %<CR>

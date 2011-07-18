@@ -7,3 +7,6 @@
 [submodule "vim/tagbar"]
 	path = vim/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "vim/vim-symfony"]
+	path = vim/vim-symfony
+	url = git://github.com/soh335/vim-symfony.git

@@ -31,8 +31,10 @@ Note: the **map leader** is `,`.
 * `CTRL+H` clears the search register
 * `F2` will toggle the paste mode (in which autoindent is disabled)
 * `,s` will start a substitute (`:%s/`)
-* `,<Right>` is a shortcut for `C-]` (go to the declaration of a class, variable, ...).
-* `,<Left>` is a shortcut for `C-T` (go back).
+* `,S` will start a search & replace with the current word (`:%s/<WORD>/<CURSOR>`)
+* `,h` will start a search with the current word (`/<WORD>`)
+* `,<Left>` is a shortcut for `C-]` (go to the declaration of a class, variable, ...).
+* `,<Right>` is a shortcut for `C-T` (go back).
 
 
 ### PHP

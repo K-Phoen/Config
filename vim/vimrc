@@ -160,12 +160,19 @@ nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 " Start a substitute
 map <leader>s :%s/
 
+" Start a search
+map <leader>h /<C-r>=expand("<cword>")<CR>
+
+" Pull word under cursor into LHS of a substitute (for quick search and
+" replace)
+nmap <leader>S :%s/<C-r>=expand("<cword>")<CR>/
+
 " Sudo to write
 command W w !sudo tee % > /dev/null
 
 
-map <silent><leader><Left> <C-T>  " go to the declaration of a class, variable, ...)
-map <silent><leader><Right> <C-]> " go back
+map <silent><leader><Right> <C-T> " go to the declaration of a class, variable, ...)
+map <silent><leader><Left> <C-]>  " go back
 
 
 " Plugin specifics

@@ -172,7 +172,7 @@ map <silent><leader><Right> <C-]> " go back
 "=================
 
 " define my name for snipmate plugin
-let g:snips_author = 'Kevin Gomez <contact@kevingomez.fr>'
+let g:snips_author = 'Kévin Gomez <contact@kevingomez.fr>'
 let g:snips_company = ''
 
 " tagbar
@@ -181,6 +181,11 @@ set updatetime=500              " show tags' prototype after 500 milliseconds
 let g:tagbar_width = 25         " width in characters of the tagbar
 let g:tagbar_autoshowtag = 1    " always show the current tag in the tagbar
 nnoremap <silent> <F10> :TagbarToggle<CR>
+
+" Syntastic
+let g:syntastic_enable_signs = 1    " open a bar on the left when an error is detected
+let g:syntastic_auto_loc_list = 1   " auto open the errors list
+let g:syntastic_quiet_warnings = 0  " we do want the warnings to be displayed
 
 
 " Language specifics
@@ -200,3 +205,9 @@ autocmd FileType php noremap <F8> :SfSwitchView<CR>
 
 " javascript
 autocmd FileType javascript noremap <F7> :!gjslint %<CR>
+
+" sh
+autocmd FileType sh noremap <F9> :! ./%<CR>
+
+" python
+autocmd FileType python noremap <F9> :!python %<CR>

@@ -1,0 +1,69 @@
+#!/bin/bash
+# pre-commit script
+# Original by William DURAND <william.durand1@gmail.com>
+# Modified by Kévin Gomez <contact@kevingomez.fr>
+
+# Configuration
+PHP=php
+JS_LINTER=gjslint
+JS_LINTER_ARGS="--strict --custom_jsdoc_tags 'api,memberOf'"
+
+DISABLE_JS_LINTER=`git config hooks.disablejslint`
+DISABLE_PHP_LINTER=`git config hooks.disablephplint`
+DISABLE_FIX_PERMISSIONS=`git config hooks.disablefixpermissions`
+DISABLE_CLEAN_FILES=`git config hooks.disablecleanfiles`
+
+# Exit the script if any statement returns a non-true return value
+set -e
+
+# Functions
+function msg() {
+    echo "[pre-commit] $1"
+}
+function error() {
+    echo -e "[pre-commit] \\033[1;31m$1"
+    tput sgr0
+    exit 1
+}
+
+# Get the files that will be committed
+files=`git diff --cached --name-only --diff-filter=ACM`
+
+msg 'Check the syntax, fix permissions and clean files.'
+
+for f in $files ; do
+    if [ -f "$f" ] ; then
+        # Check PHP, abort commit if syntax error
+        if [ ! $DISABLE_PHP_LINTER ] && builtin type -p $PHP &> /dev/null && [[ "$f" =~ .+\.php$ ]] ; then
+            $PHP -l "$f" > /dev/null || error "PHP syntax error detected in '$f', abort !"
+        fi
+
+        # Check PHP code
+        if [ ! $DISABLE_PHP_LINTER ] && [[ "$f" =~ .+\.php$ ]] ; then
+            if [ `egrep -i "die\(|var_dump\(|print_r\(" $f | wc -l` -gt 0 ] ; then
+                error "PHP possibility error detected in '$f', abort !"
+            fi
+        fi
+
+        # Check JavaScript, abort commit if syntax error
+        if [ ! $DISABLE_JS_LINTER ] &&  builtin type -p "$JS_LINTER" &> /dev/null && [[ "$f" =~ .+\.js$ ]] ; then
+            $JS_LINTER $JS_LINTER_ARGS "$f" | grep --color=never -e '^[Line|Found]' && error "JavaScript syntax error detected in '$f', abort !"
+        fi
+
+        # Fix permissions
+        [ ! $DISABLE_FIX_PERMISSIONS ] && chmod 644 "$f"
+
+        # Don't clean images, it could break them
+        if [ ! $DISABLE_CLEAN_FILES ] && [[ ! "$f" =~ .+\.(ico|png|gif|jpg|jpeg)$ ]] ; then
+            # Remove trailing whitespaces
+            sed -i 's/[[:space:]]*$//' "$f"
+            # Remove ^M
+            sed -i -e '//d' "$f"
+        fi
+
+        # Re-add the file to the git index
+        git add "$f"
+    fi
+done
+
+msg 'Success.'

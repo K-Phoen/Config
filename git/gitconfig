@@ -19,3 +19,7 @@
   added = yellow
   changed = green
   untracked = cyan
+
+[hooks]
+  disablefixpermissions = true
+  disablecleanfiles = true

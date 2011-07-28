@@ -15,6 +15,7 @@ Vim
 * Autocompletion
     * PHPComplete
     * PythonComplete
+* NerdTree
 * New commands:
     * `:W` will save the current file with sudo
 * etc.
@@ -35,6 +36,7 @@ Note: the **map leader** is `,`.
 * `,h` will start a search with the current word (`/<WORD>`)
 * `,<Left>` is a shortcut for `C-]` (go to the declaration of a class, variable, ...).
 * `,<Right>` is a shortcut for `C-T` (go back).
+* `,<n>` is a shortcut for `:NERDTreeToggle`.
 
 
 ### PHP

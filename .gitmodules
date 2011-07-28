@@ -10,3 +10,6 @@
 [submodule "vim/vim-symfony"]
 	path = vim/vim-symfony
 	url = git://github.com/soh335/vim-symfony.git
+[submodule "vim/nerdtree"]
+	path = vim/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git

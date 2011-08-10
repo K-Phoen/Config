@@ -6,9 +6,10 @@
 # Configuration
 PHP=php
 JS_LINTER=gjslint
-JS_LINTER_ARGS="--strict --custom_jsdoc_tags 'api,memberOf'"
+JS_LINTER_ARGS="--custom_jsdoc_tags 'api,memberOf'"
 
 DISABLE_JS_LINTER=`git config hooks.disablejslint`
+DISABLE_JS_CONSOLE_CHECK=`git config hooks.disablejsconsolecheck`
 DISABLE_PHP_LINTER=`git config hooks.disablephplint`
 DISABLE_FIX_PERMISSIONS=`git config hooks.disablefixpermissions`
 DISABLE_CLEAN_FILES=`git config hooks.disablecleanfiles`
@@ -35,19 +36,28 @@ for f in $files ; do
     if [ -f "$f" ] ; then
         # Check PHP, abort commit if syntax error
         if [ ! $DISABLE_PHP_LINTER ] && builtin type -p $PHP &> /dev/null && [[ "$f" =~ .+\.php$ ]] ; then
-            $PHP -l "$f" > /dev/null || error "PHP syntax error detected in '$f', abort !"
+            $PHP -l "$f" > /dev/null || error "PHP syntax error detected in '$f', abort!"
         fi
 
         # Check PHP code
         if [ ! $DISABLE_PHP_LINTER ] && [[ "$f" =~ .+\.php$ ]] ; then
             if [ `egrep -i "die\(|var_dump\(|print_r\(" $f | wc -l` -gt 0 ] ; then
-                error "PHP possibility error detected in '$f', abort !"
+                egrep -n -i "die\(|var_dump\(|print_r\("
+                error "PHP possibility error detected in '$f', abort!"
             fi
         fi
 
         # Check JavaScript, abort commit if syntax error
         if [ ! $DISABLE_JS_LINTER ] &&  builtin type -p "$JS_LINTER" &> /dev/null && [[ "$f" =~ .+\.js$ ]] ; then
             $JS_LINTER $JS_LINTER_ARGS "$f" | grep --color=never -e '^[Line|Found]' && error "JavaScript syntax error detected in '$f', abort !"
+        fi
+
+        # Check JS code
+        if [ ! $DISABLE_JS_CONSOLE_CHECK ] && [[ "$f" =~ .+\.js$ ]] ; then
+            if [ `egrep -i "console\.(log|warn|info)\(" $f | wc -l` -gt 0 ] ; then
+                egrep -n -i "console\.(log|warn|info)\(" $f
+                error "JS possibility error detected in '$f', abort!"
+            fi
         fi
 
         # Fix permissions

@@ -4,6 +4,10 @@
 
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = vim
+
+[merge]
+	tool = vimdiff
 
 [color]
   ui = true
@@ -23,3 +27,4 @@
 [hooks]
   disablefixpermissions = true
   disablecleanfiles = true
+  disablejslint = true

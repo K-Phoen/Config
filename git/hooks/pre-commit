@@ -8,6 +8,9 @@ PHP=php
 JS_LINTER=gjslint
 JS_LINTER_ARGS="--custom_jsdoc_tags 'api,memberOf'"
 
+PHP_CHECK_REGEX="exit\(|die\(|var_dump\(|print_r\("
+JS_CHECK_REGEX="console\.(log|warn|info)\("
+
 DISABLE_JS_LINTER=`git config hooks.disablejslint`
 DISABLE_JS_CONSOLE_CHECK=`git config hooks.disablejsconsolecheck`
 DISABLE_PHP_LINTER=`git config hooks.disablephplint`
@@ -41,8 +44,8 @@ for f in $files ; do
 
         # Check PHP code
         if [ ! $DISABLE_PHP_LINTER ] && [[ "$f" =~ .+\.php$ ]] ; then
-            if [ `egrep -i "die\(|var_dump\(|print_r\(" $f | wc -l` -gt 0 ] ; then
-                egrep -n -i "die\(|var_dump\(|print_r\("
+            if [[ `egrep -i q "$PHP_CHECK_REGEX" $f` ]] ; then
+                egrep -n -i "$PHP_CHECK_REGEX" $f
                 error "PHP possibility error detected in '$f', abort!"
             fi
         fi
@@ -54,8 +57,8 @@ for f in $files ; do
 
         # Check JS code
         if [ ! $DISABLE_JS_CONSOLE_CHECK ] && [[ "$f" =~ .+\.js$ ]] ; then
-            if [ `egrep -i "console\.(log|warn|info)\(" $f | wc -l` -gt 0 ] ; then
-                egrep -n -i "console\.(log|warn|info)\(" $f
+            if [[ `egrep -i -q "$JS_CHECK_REGEX" $f` ]] ; then
+                egrep -n -i "$JS_CHECK_REGEX" $f
                 error "JS possibility error detected in '$f', abort!"
             fi
         fi

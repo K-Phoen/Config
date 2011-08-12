@@ -44,7 +44,7 @@ for f in $files ; do
 
         # Check PHP code
         if [ ! $DISABLE_PHP_LINTER ] && [[ "$f" =~ .+\.php$ ]] ; then
-            if [[ `egrep -i q "$PHP_CHECK_REGEX" $f` ]] ; then
+            if [[ `egrep -i  "$PHP_CHECK_REGEX" $f` ]] ; then
                 egrep -n -i "$PHP_CHECK_REGEX" $f
                 error "PHP possibility error detected in '$f', abort!"
             fi
@@ -57,7 +57,7 @@ for f in $files ; do
 
         # Check JS code
         if [ ! $DISABLE_JS_CONSOLE_CHECK ] && [[ "$f" =~ .+\.js$ ]] ; then
-            if [[ `egrep -i -q "$JS_CHECK_REGEX" $f` ]] ; then
+            if [[ `egrep -i "$JS_CHECK_REGEX" $f` ]] ; then
                 egrep -n -i "$JS_CHECK_REGEX" $f
                 error "JS possibility error detected in '$f', abort!"
             fi

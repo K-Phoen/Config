@@ -12,7 +12,7 @@ echo "[-][vim] Begin installation ..."
 
 # install dependancies
 IFS=";"
-dependancies='syntastic;tagbar;vim-symfony;nerdtree'
+dependancies='syntastic;tagbar;vim-symfony;nerdtree;nerdcommenter'
 for dep_name in $dependancies; do
   # check if the current dependancy is already installed
   if [[ -e "_cache/$dep_name"  ]]; then

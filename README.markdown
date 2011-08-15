@@ -36,7 +36,8 @@ Note: the **map leader** is `,`.
 * `,h` will start a search with the current word (`/<WORD>`)
 * `,<Left>` is a shortcut for `C-]` (go to the declaration of a class, variable, ...).
 * `,<Right>` is a shortcut for `C-T` (go back).
-* `,<n>` is a shortcut for `:NERDTreeToggle`.
+* `,n` is a shortcut for `:NERDTreeToggle`.
+* `,ev` to edit your vimrc in a new tab.
 
 
 ### PHP
@@ -76,3 +77,4 @@ Git
 ===
 
 * Colors while viewing a diff or displaying the status
+* Pre-commit hook checking for debug artefacts (console.log, var_dump, etc.)

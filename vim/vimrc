@@ -32,6 +32,7 @@ set noswapfile                  " Use an SCM instead of swap files
 set shell=zsh                   " Use Zsh as default shell
 set wildmenu                    " Enhanced command line completion.
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/cache/**,*/logs/**,*/zend/**,*/bootstrap.* " Ignore certain files
+set wildmode=list:full
 
 " Uncomment the following to have Vim jump to the last position when reopening
 " a file
@@ -46,9 +47,8 @@ set softtabstop=2   " when hitting tab or backspace, how many spaces should a
                     " tab be (see expandtab)
 set tabstop=2       " real tabs should be 2
 
-if v:version >= 703
-  set colorcolumn=+1 " mark the ideal max text width
-endif
+set enc=utf-8       " utf-8 default encoding
+
 
 
 " Search
@@ -78,14 +78,13 @@ set pastetoggle=<F2>
 "===========
 
 let &t_Co=256         " force the 256-color mode
-set background=light
+set background=dark
 colorscheme mustang
 
 
 " Status line
 "=============
 
-" set statusline=%F%m%=%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [LINE=%l]\ [Col=%v]\ [%p%%]
 set laststatus=2
 
 hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
@@ -158,6 +157,7 @@ endfunction
 inoremap <C-Space> <c-r>=SmartComplete()<CR>
 imap <C-@> <C-Space>
 
+
 " Toggle line numbers and fold column for easy copying:
 nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 
@@ -174,9 +174,12 @@ nmap <leader>S :%s/<C-r>=expand("<cword>")<CR>/
 " Sudo to write
 command W w !sudo tee % > /dev/null
 
+" edit vimrc in a new tab
+nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 
 map <silent><leader><Right> <C-T> " go to the declaration of a class, variable, ...)
 map <silent><leader><Left> <C-]>  " go back
+
 
 
 " Plugin specifics

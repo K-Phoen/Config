@@ -21,7 +21,8 @@ set cursorline
 set nocompatible
 set encoding=utf-8
 set backspace=indent,eol,start
-set autoindent
+set autoindent                  " Always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
 set ruler                       " Always show current positions along the bottom
 set number                      " turn on line numbers
 
@@ -47,8 +48,6 @@ set softtabstop=2   " when hitting tab or backspace, how many spaces should a
                     " tab be (see expandtab)
 set tabstop=2       " real tabs should be 2
 
-set enc=utf-8       " utf-8 default encoding
-
 
 
 " Search
@@ -67,19 +66,13 @@ set smartcase
 
 
 
-" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
-" F2 = toggle paste mode
-nnoremap <F2> :set invpaste paste?<Enter>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
-
-
 " Theme setup
 "===========
 
 let &t_Co=256         " force the 256-color mode
 set background=dark
 colorscheme mustang
+
 
 
 " Status line
@@ -180,10 +173,21 @@ nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 map <silent><leader><Right> <C-T> " go to the declaration of a class, variable, ...)
 map <silent><leader><Left> <C-]>  " go back
 
+" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+" F2 = toggle paste mode
+nnoremap <F2> :set invpaste paste?<Enter>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
+
 
 
 " Plugin specifics
 "=================
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " define my name for snipmate plugin
 let g:snips_author = 'Kévin Gomez <contact@kevingomez.fr>'

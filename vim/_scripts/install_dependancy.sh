@@ -23,7 +23,7 @@ fi
 find $DEPENDANCY_PATH \( -name .git -o -name README -o -name Rakefile -o -name .gitignore \) -prune -o -type f -print > "_cache/$dep"
 
 # install syntastic
-for item in `find $DEPENDANCY_PATH -maxdepth 1 \( -name '.git' -o -name README -o -name Rakefile -o -name .gitignore \) -prune -o -print`; do
+for item in `find $DEPENDANCY_PATH -maxdepth 1 \( -name '.git' -o -name README -o -name README.markdown -o -name Rakefile -o -name .gitignore \) -prune -o -print`; do
   if [[ $item = "$DEPENDANCY_PATH" ]] ; then
     continue
   fi

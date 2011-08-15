@@ -221,10 +221,8 @@ map <leader>n :NERDTreeToggle<CR>
 autocmd FileType php noremap <F7> :!php -l %<CR>
 autocmd FileType php noremap <F9> :!php %<CR>
 autocmd FileType php noremap <C-b> :Bp<CR> " set/remove a breakpoint
-let php_htmlInStrings = 1
-let php_sql_query = 1
 " activate symfony for php files
-autocmd FileType php set ft=php.symfony
+"autocmd FileType php set ft=php.symfony
 
 " symfony
 autocmd FileType php noremap <F8> :Sview<CR>

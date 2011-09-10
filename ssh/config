@@ -1,0 +1,7 @@
+Host kphoen
+  Hostname=bnc.kevingomez.fr
+  IdentityFile=~/.ssh/id_rsa
+
+Host leodagan
+  Hostname=176.31.199.45
+  IdentityFile=~/.ssh/id_rsa

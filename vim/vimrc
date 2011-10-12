@@ -180,6 +180,20 @@ set pastetoggle=<F2>
 
 
 
+" Filetypes
+"==========
+
+" markdown files
+au BufRead,BufNewFile *.{md,mdk} set filetype=markdown
+" disable folding
+autocmd FileType markdown set nofoldenable
+
+autocmd FileType markdown set textwidth=80
+
+" preview in the browser
+autocmd FileType markdown  map <leader>md :!markdown % > /tmp/'%:t'.html && xdg-open /tmp/'%:t'.html<CR>
+
+
 " Plugin specifics
 "=================
 

@@ -69,17 +69,27 @@ set smartcase
 
 
 
+" Pathogen
+"=========
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+
+
 " Theme setup
-"===========
+"============
 
 let &t_Co=256         " force the 256-color mode
+let g:solarized_termcolors=256
 set background=dark
-colorscheme mustang
+colorscheme solarized
 
 
 
 " Status line
-"=============
+"============
 
 set laststatus=2
 
@@ -200,11 +210,6 @@ autocmd FileType markdown  map <leader>md :!markdown % > /tmp/'%:t'.html && xdg-
 
 " Plugin specifics
 "=================
-
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 " define my name for snipmate plugin
 let g:snips_author = 'Kévin Gomez <contact@kevingomez.fr>'

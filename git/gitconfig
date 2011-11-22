@@ -28,3 +28,6 @@
   disablefixpermissions = true
   disablecleanfiles = true
   disablejslint = true
+
+[alias]
+  slog = "log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'"

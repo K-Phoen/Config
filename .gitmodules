@@ -22,3 +22,6 @@
 [submodule "vagrant"]
 	path = vagrant
 	url = git://github.com/K-Phoen/myVagrant.git
+[submodule "vim/vim/bundle/vim-xdebug"]
+	path = vim/vim/bundle/vim-xdebug
+	url = https://K-Phoen@github.com/K-Phoen/vim-xdebug.git

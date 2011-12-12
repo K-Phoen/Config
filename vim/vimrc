@@ -51,6 +51,9 @@ set list
 set listchars=tab:▸\ , " display special chars for tabs
 
 
+if has('mouse')
+  set mouse=a
+endif
 
 
 " Search
@@ -259,3 +262,4 @@ autocmd FileType sh noremap <F9> :! ./%<CR>
 " python
 autocmd FileType python noremap <F9> :!python %<CR>
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4 textwidth=79
+autocmd FileType python set colorcolumn=79

@@ -51,10 +51,6 @@ set list
 set listchars=tab:▸\ , " display special chars for tabs
 
 
-if has('mouse')
-  set mouse=a
-endif
-
 
 " Search
 "=======

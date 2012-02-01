@@ -8,8 +8,8 @@ PHP=php
 JS_LINTER=gjslint
 JS_LINTER_ARGS="--custom_jsdoc_tags 'api,memberOf'"
 
-PHP_CHECK_REGEX="exit\(|die\(|var_dump\(|print_r\(|error_log\("
-JS_CHECK_REGEX="console\.(log|warn|info)\("
+PHP_CHECK_REGEX="exit\(|die\(|var_dump\(|print_r\(|error_log\(|@tmp"
+JS_CHECK_REGEX="console\.(log|warn|info)\(|@tmp"
 
 DISABLE_JS_LINTER=`git config hooks.disablejslint`
 DISABLE_JS_CONSOLE_CHECK=`git config hooks.disablejsconsolecheck`

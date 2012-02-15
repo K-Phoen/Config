@@ -50,10 +50,17 @@ Note: the **map leader** is `,`.
 
 * `F8`  will switch from the action to the view and from the view to the action.
 
-
 ### JavaScript
 
 * `F7` will launch the linter on the current file (this needs gjslint)
+
+### Python
+
+* `F9` runs the current file
+
+### Scala
+
+* `F9` runs the current file
 
 
 Xmonad
@@ -68,7 +75,7 @@ Zsh
 
 * Based on oh-my-zsh
 * Customized theme
-* Git plugin
+* Git "aware" theme
 * Some usefull aliases
 * Easy _machine specific_ configuration
 

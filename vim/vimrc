@@ -50,6 +50,8 @@ set tabstop=2       " real tabs should be 2
 set list
 set listchars=tab:▸\ , " display special chars for tabs
 
+set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
+
 
 
 " Search
@@ -83,14 +85,6 @@ let &t_Co=256         " force the 256-color mode
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-
-
-
-" Status line
-"============
-
-set laststatus=2
-let g:Powerline_symbols = 'unicode'
 
 
 " Highlight unwanted spaces
@@ -174,6 +168,11 @@ autocmd FileType markdown  map <leader>md :!markdown % > /tmp/'%:t'.html && xdg-
 let g:snips_author = 'Kévin Gomez <contact@kevingomez.fr>'
 let g:snips_company = ''
 
+" vim-powerline
+set laststatus=2
+let g:Powerline_symbols = 'unicode'
+
+
 " tagbar
 let g:tagbar_left = 1           " display the tagbar on the left side
 set updatetime=500              " show tags' prototype after 500 milliseconds
@@ -189,8 +188,8 @@ let g:syntastic_quiet_warnings = 1  " we don't want the warnings to be displayed
 
 " Completion
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"set completeopt=menuone,menu,longest,preview
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>

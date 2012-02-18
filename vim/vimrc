@@ -204,8 +204,18 @@ autocmd FileType php noremap <C-b> :Bp<CR> " set/remove a breakpoint
 " activate symfony for php files
 "autocmd FileType php set ft=php.symfony
 
+" Twig
+autocmd BufNewFile,BufRead *.twig set filetype=twig
+
 " symfony
 autocmd FileType php noremap <F8> :Sview<CR>
+
+" Symfony2 (default)
+autocmd BufRead,BufNewFile *.php.* set ft=php.sf2
+autocmd BufRead,BufNewFile *Bundle/*.php set ft=php.sf2
+
+autocmd FileType sf2 set shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType twig set shiftwidth=4 tabstop=4 softtabstop=4
 
 " javascript
 autocmd FileType javascript noremap <F7> :!gjslint %<CR>

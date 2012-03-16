@@ -52,6 +52,9 @@ set listchars=tab:▸\ , " display special chars for tabs
 
 set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
 
+set scrolloff=5     " Keep x line for scope while scrolling
+set sidescrolloff=5
+
 
 
 " Search

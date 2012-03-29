@@ -24,7 +24,7 @@
 	url = git://github.com/K-Phoen/myVagrant.git
 [submodule "vim/vim/bundle/vim-xdebug"]
 	path = vim/vim/bundle/vim-xdebug
-	url = git://K-Phoen@github.com/K-Phoen/vim-xdebug.git
+	url = git://github.com/K-Phoen/vim-xdebug.git
 [submodule "vim/vim/bundle/vim-colors-solarized"]
 	path = vim/vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git

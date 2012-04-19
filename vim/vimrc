@@ -190,8 +190,8 @@ let g:syntastic_quiet_warnings = 1  " we don't want the warnings to be displayed
 
 " Completion
 " automatically open and close the popup menu / preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-"set completeopt=menuone,menu,longest,preview
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>

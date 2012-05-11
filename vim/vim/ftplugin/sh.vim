@@ -1,1 +1,1 @@
-autocmd FileType sh noremap <F9> :! ./%<CR>
+noremap <F9> :! ./%<CR>

@@ -1,1 +1,1 @@
-autocmd FileType scala noremap <F9> :!scala %<CR>
+noremap <F9> :!scala %<CR>

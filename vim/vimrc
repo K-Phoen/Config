@@ -100,19 +100,19 @@ autocmd BufWinLeave * call clearmatches()
 
 " Smart completion
 function! SmartComplete()
-	let line = getline('.')                         " curline
-	let substr = strpart(line, -1, col('.')+1)      " from start to cursor
-	let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-	let has_period = match(substr, '\.') != -1      " position of period, if any
-	let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  let line = getline('.')                         " curline
+  let substr = strpart(line, -1, col('.')+1)      " from start to cursor
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  let has_period = match(substr, '\.') != -1      " position of period, if any
+  let has_slash = match(substr, '\/') != -1       " position of slash, if any
 
-	if ( has_slash )
-		return "\<C-X>\<C-F>"                         " file matching
-	elseif &omnifunc != ''
-		return "\<C-X>\<C-O>"                         " omnifunc if available
+  if ( has_slash )
+    return "\<C-X>\<C-F>"                         " file matching
+  elseif &omnifunc != ''
+    return "\<C-X>\<C-O>"                         " omnifunc if available
   else
     return "\<C-X>\<C-P>"                         " existing text matching
-	endif
+  endif
 endfunction
 
 " Call smart completion when pressing Ctrl-Space
@@ -147,21 +147,6 @@ map <silent><leader><Left> <C-]>  " go back
 nnoremap <F2> :set invpaste paste?<Enter>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
-
-
-
-" Filetypes
-"==========
-
-" markdown files
-au BufRead,BufNewFile *.{md,mdk} set filetype=markdown
-" disable folding
-autocmd FileType markdown set nofoldenable
-
-autocmd FileType markdown set textwidth=80
-
-" preview in the browser
-autocmd FileType markdown  map <leader>md :!markdown % > /tmp/'%:t'.html && xdg-open /tmp/'%:t'.html<CR>
 
 
 " Plugin specifics
@@ -200,29 +185,29 @@ map <leader>n :NERDTreeToggle<CR>
 " Language specifics
 "===================
 
+" markdown
+
+" disable folding
+autocmd FileType markdown set nofoldenable
+
+autocmd FileType markdown set textwidth=80
+
+" preview in the browser
+autocmd FileType markdown  map <leader>md :!markdown % > /tmp/'%:t'.html && xdg-open /tmp/'%:t'.html<CR>
+
 " php
 autocmd FileType php noremap <F7> :!php -l %<CR>
 autocmd FileType php noremap <F9> :!php %<CR>
 autocmd FileType php noremap <C-b> :Bp<CR> " set/remove a breakpoint
-" activate symfony for php files
-"autocmd FileType php set ft=php.symfony
-
-" Twig
-autocmd BufNewFile,BufRead *.twig set filetype=twig
-
-" symfony
-autocmd FileType php noremap <F8> :Sview<CR>
 
 " Symfony2 (default)
-autocmd BufRead,BufNewFile *.php.* set ft=php.sf2
-autocmd BufRead,BufNewFile *Bundle/*.php set ft=php.sf2
-
 autocmd FileType sf2 set shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType twig set shiftwidth=4 tabstop=4 softtabstop=4
 
 " javascript
 autocmd FileType javascript noremap <F7> :!gjslint %<CR>
 let g:syntastic_javascript_gjslint_conf = '--nojsdoc'
+let g:syntastic_javascript_checker = 'jshint'
 autocmd FileType javascript let g:syntastic_auto_loc_list = 0   " not auto open/close the errors list
 
 " sh

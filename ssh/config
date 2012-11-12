@@ -3,5 +3,5 @@ Host kphoen
   IdentityFile=~/.ssh/id_rsa
 
 Host leodagan
-  Hostname=176.31.199.45
+  Hostname=5.9.234.144
   IdentityFile=~/.ssh/id_rsa

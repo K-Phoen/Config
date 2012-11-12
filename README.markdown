@@ -15,6 +15,7 @@ Vim
 * Autocompletion
     * PHPComplete
     * PythonComplete
+    * Supertab
 * NerdTree
 * New commands:
     * `:W` will save the current file with sudo

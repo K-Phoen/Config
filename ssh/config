@@ -4,4 +4,9 @@ Host kphoen
 
 Host leodagan
   Hostname=5.9.234.144
-  IdentityFile=~/.ssh/id_rsa
+  IdentityFile=~/.ssh/id_dsa
+
+Host backups
+  Hostname=46.105.6.226
+  IdentityFile=~/.ssh/backup_key
+  User=backups

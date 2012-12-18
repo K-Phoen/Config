@@ -1,0 +1,2 @@
+" disable folding
+setlocal nofoldenable

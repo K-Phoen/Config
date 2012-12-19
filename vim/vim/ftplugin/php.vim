@@ -4,3 +4,8 @@ noremap <C-b> :Bp<CR> " set/remove a breakpoint
 
 " Symfony2 (default)
 set shiftwidth=4 tabstop=4 softtabstop=4
+
+" PHPDoc
+inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-D> :call PhpDocSingle()<CR>
+vnoremap <C-D> :call PhpDocRange()<CR>

@@ -52,3 +52,6 @@
 [submodule "vim/vim/bundle/php-complete"]
 	path = vim/vim/bundle/php-complete
 	url = git://github.com/EvanDotPro/phpcomplete.vim.git
+[submodule "vim/vim/bundle/smartinput"]
+	path = vim/vim/bundle/smartinput
+	url = git://github.com/kana/vim-smartinput.git

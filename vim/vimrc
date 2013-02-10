@@ -163,3 +163,11 @@ set completeopt=menuone,menu,longest,preview
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>
+
+" Ctags
+set tags=./tags;/,~/.vimtags
+
+" ctrlp
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$' }

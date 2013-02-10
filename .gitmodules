@@ -37,3 +37,6 @@
 [submodule "vim/vim/bundle/php-complete"]
 	path = vim/vim/bundle/php-complete
 	url = git://github.com/EvanDotPro/phpcomplete.vim.git
+[submodule "vim/vim/bundle/vim-puppet"]
+	path = vim/vim/bundle/vim-puppet
+	url = git://github.com/rodjek/vim-puppet.git

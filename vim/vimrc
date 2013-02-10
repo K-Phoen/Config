@@ -104,6 +104,9 @@ autocmd BufWinLeave * call clearmatches()
 " Toggle line numbers and fold column for easy copying:
 nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" Trim trailing spaces
+map <leader>t :%s/\s\+$<CR>
+
 " Start a substitute
 map <leader>s :%s/
 

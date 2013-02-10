@@ -40,3 +40,9 @@
 [submodule "vim/vim/bundle/vim-puppet"]
 	path = vim/vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule "vim/vim/bundle/PIV"]
+	path = vim/vim/bundle/PIV
+	url = git://github.com/spf13/PIV.git
+[submodule "vim/vim/bundle/neocomplcache"]
+	path = vim/vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git

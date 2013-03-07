@@ -258,3 +258,6 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
+
+" git gutter
+highlight clear SignColumn

@@ -1,12 +1,16 @@
-Host kphoen
-  Hostname=bnc.kevingomez.fr
+host perceval
+  Hostname=46.105.6.226
   IdentityFile=~/.ssh/id_rsa
 
 Host leodagan
   Hostname=5.9.234.144
-  IdentityFile=~/.ssh/id_dsa
+  IdentityFile=~/.ssh/id_rsa
 
-Host backups
-  Hostname=46.105.6.226
-  IdentityFile=~/.ssh/backup_key
-  User=backups
+Host kadoc
+  Hostname=178.32.220.164
+  Port 4222
+  IdentityFile=~/.ssh/id_rsa
+
+Host rasp
+  Hostname=192.168.0.50
+  IdentityFile=~/.ssh/id_rsa

@@ -25,7 +25,7 @@ set noswapfile                  " Use an SCM instead of swap files
 
 set shell=zsh                   " Use Zsh as default shell
 set wildmenu                    " Enhanced command line completion.
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/cache/**,*/logs/**,*/zend/**,*/bootstrap.* " Ignore certain files
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/cache/**,*/logs/**,*/zend/** " Ignore certain files
 
 " Uncomment the following to have Vim jump to the last position when reopening
 " a file

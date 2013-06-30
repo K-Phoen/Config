@@ -24,30 +24,6 @@ export PATH=~/bin:$PATH
 
 umask 022
 
-#PROMPT='${vcs_info_msg_0_}%{${reset_color}%}'
-#
-#if [ "$EUID" = "0" ] || [ "$USER" = "root" ] ; then
-#  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${ROOTPATH}"
-#  PROMPT="%{${fg_bold[red]}%}${PROMPT}"
-#else
-#  PATH="/usr/local/bin:/usr/bin:/bin:${PATH}"
-#  PROMPT="%{${fg_bold[red]}%}¬ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}%{$fb_bold[blue]%}${PROMPT}"
-#fi
-#export PATH
-#unset ROOTPATH
-#
-#function bat_info(){
-#    acpi | cut -d " " -f5
-#}
-#
-#MYRPROMPT='$(bat_info)'
-#reset_rprompt(){
-#    RPROMPT=$MYRPROMPT
-#}
-#
-#reset_rprompt
-#
-
 shopts=$-
 setopt nullglob
 for sh in /etc/profile.d/*.sh ; do

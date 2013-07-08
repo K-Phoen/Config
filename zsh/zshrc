@@ -19,7 +19,7 @@ if [ -e /etc/profile.env ] ; then
 fi
 
 export EDITOR=${EDITOR:-/usr/bin/vim}
-export PAGER=${PAGER:-/usr/bin/less}
+export PAGER=${PAGER:-/usr/bin/most}
 export PATH=~/bin:$PATH
 
 umask 022

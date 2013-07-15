@@ -160,12 +160,13 @@ let g:syntastic_quiet_warnings = 1  " we don't want the warnings to be displayed
 map <leader>n :NERDTreeToggle<CR>
 
 " Ctags
-set tags=./tags;/,~/.vimtags
+set tags=./tags;/,~/.vimtags,tags,vendor.tags
 
 " ctrlp
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$',
     \ 'file': '\.exe$\|\.so$\|\.dll$' }
+let g:ctrlp_clear_cache_on_exit = 0
 
 " OmniComplete
 if has("autocmd") && exists("+omnifunc")

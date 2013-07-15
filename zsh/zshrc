@@ -1,47 +1,34 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/Config/zsh/oh-my-zsh
-
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="kphoen"
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vagrant composer symfony2 capistrano)
-
-source $ZSH/oh-my-zsh.sh
+if [ -d ~/.zsh.d/rc.d/ ]; then
+  for i in ~/.zsh.d/rc.d/*; do
+    if [ -r $i ]; then
+      source $i
+    fi
+  done
+  unset i
+fi
 
 [ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
 
-# quelques préférences
-export EDITOR=/usr/bin/vim
-export PAGER=most
+autoload -Uz colors
+colors
+unsetopt beep
+
+
+if [ -e /etc/profile.env ] ; then
+. /etc/profile.env
+fi
+
+export EDITOR=${EDITOR:-/usr/bin/vim}
+export PAGER=${PAGER:-/usr/bin/most}
 export PATH=~/bin:$PATH
 
-# des alias utiles
-alias aptupgrade='sudo aptitude update && sudo aptitude safe-upgrade'
-alias grep='grep --color=auto'
-alias lh='ls -lh --color=auto'
+umask 022
 
-alias ssovh='ssh kevin@46.105.6.226'
-alias sshx='ssh -c arcfour,blowfish-cbc -XC'
-
-# git
-alias gst='git status'
-
-# petit hack pour faire fonctionner les raccourcis CTRL-LEFT et CTRL-RIGHT
-# et la touche SUPPR
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^[[3~"   delete-char
-bindkey '^[OH'    beginning-of-line
-bindkey '^[OF'    end-of-line
+shopts=$-
+setopt nullglob
+for sh in /etc/profile.d/*.sh ; do
+  [ -r "$sh" ] && . "$sh"
+done
+unsetopt nullglob
+set -$shopts
+unset sh shopts

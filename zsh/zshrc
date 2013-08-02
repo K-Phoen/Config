@@ -1,14 +1,3 @@
-if [ -d ~/.zsh.d/rc.d/ ]; then
-  for i in ~/.zsh.d/rc.d/*; do
-    if [ -r $i ]; then
-      source $i
-    fi
-  done
-  unset i
-fi
-
-[ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
-
 autoload -Uz colors
 colors
 unsetopt beep
@@ -32,3 +21,14 @@ done
 unsetopt nullglob
 set -$shopts
 unset sh shopts
+
+if [ -d ~/.zsh.d/rc.d/ ]; then
+  for i in ~/.zsh.d/rc.d/*; do
+    if [ -r $i ]; then
+      source $i
+    fi
+  done
+  unset i
+fi
+
+[ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific

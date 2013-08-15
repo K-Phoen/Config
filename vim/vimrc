@@ -49,6 +49,7 @@ set scrolloff=5     " Keep x line for scope while scrolling
 set sidescrolloff=5
 
 set formatoptions+=or " see http://stackoverflow.com/questions/3298820/vim-phpdoc-multiline-comment-autoindent/3303017#3303017
+set wrap            " long lines wrap and continue to the next line
 
 
 

@@ -55,3 +55,6 @@
 [submodule "vim/vim/bundle/vim-less"]
 	path = vim/vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure.git

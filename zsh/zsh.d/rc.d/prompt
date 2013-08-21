@@ -1,2 +1,1 @@
-export DEFAULT_USERNAME=vagrant
 . ~/Config/zsh/pure/pure.zsh

@@ -22,6 +22,8 @@ unsetopt nullglob
 set -$shopts
 unset sh shopts
 
+[ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
+
 if [ -d ~/.zsh.d/rc.d/ ]; then
   for i in ~/.zsh.d/rc.d/*; do
     if [ -r $i ]; then
@@ -30,5 +32,3 @@ if [ -d ~/.zsh.d/rc.d/ ]; then
   done
   unset i
 fi
-
-[ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific

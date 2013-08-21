@@ -1,5 +1,8 @@
 # manage ssh keys
-keychain --quiet --agents ssh id_rsa
+#keychain --quiet --agents ssh id_rsa
 
 # add dox to the $PATH
-export PATH=~/node_modules/dox/bin:$PATH
+#export PATH=~/node_modules/dox/bin:$PATH
+
+# pure zsh theme options
+export DEFAULT_USERNAME=kevin

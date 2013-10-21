@@ -25,9 +25,6 @@
 [submodule "vim/vim/bundle/vim-markdown"]
 	path = vim/vim/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
-[submodule "vim/vim/bundle/vim-phpdoc"]
-	path = vim/vim/bundle/vim-phpdoc
-	url = git://github.com/vexxor/phpdoc.vim.git
 [submodule "vim/vim/bundle/ctrlp"]
 	path = vim/vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git

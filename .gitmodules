@@ -7,9 +7,6 @@
 [submodule "vim/vim/bundle/tagbar"]
 	path = vim/vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "vim/vim/bundle/nerdtree"]
-	path = vim/vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "vim/vim/bundle/vim-xdebug"]
 	path = vim/vim/bundle/vim-xdebug
 	url = git://github.com/K-Phoen/vim-xdebug.git

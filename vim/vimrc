@@ -157,9 +157,6 @@ nnoremap <silent> <F10> :TagbarToggle<CR>
 let g:syntastic_auto_loc_list = 1   " auto open/close the errors list
 let g:syntastic_quiet_warnings = 1  " we don't want the warnings to be displayed
 
-" NerdTree
-map <leader>n :NERDTreeToggle<CR>
-
 " Ctags
 set tags=./tags;/,~/.vimtags,tags,vendor.tags
 
@@ -239,7 +236,7 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,twig,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags

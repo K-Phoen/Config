@@ -67,21 +67,33 @@ map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 set ignorecase
 set smartcase
 
-
-
-" Pathogen
-"=========
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-call pathogen#infect()
-
 " Enable syntax highlighting
 syntax on
 
-" enable filetypes
-filetype on
-filetype plugin indent on
 
+" Bundles
+"========
+
+filetype off                  " required by vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" My bundles
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/syntastic'
+Bundle 'K-Phoen/vim-xdebug'
+Bundle 'EvanDotPro/phpcomplete.vim'
+Bundle 'spf13/PIV'
+Bundle 'airblade/vim-gitgutter'
+
+filetype plugin indent on     " required!
 
 
 " Theme setup

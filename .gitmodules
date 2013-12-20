@@ -1,36 +1,6 @@
-[submodule "vim/vim-pathogen"]
-	path = vim/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/vim/bundle/syntastic"]
-	path = vim/vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/vim/bundle/tagbar"]
-	path = vim/vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
-[submodule "vim/vim/bundle/vim-xdebug"]
-	path = vim/vim/bundle/vim-xdebug
-	url = git://github.com/K-Phoen/vim-xdebug.git
-[submodule "vim/vim/bundle/vim-colors-solarized"]
-	path = vim/vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/vim/bundle/supertab"]
-	path = vim/vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
-[submodule "vim/vim/bundle/ctrlp"]
-	path = vim/vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/vim/bundle/php-complete"]
-	path = vim/vim/bundle/php-complete
-	url = git://github.com/EvanDotPro/phpcomplete.vim.git
-[submodule "vim/vim/bundle/PIV"]
-	path = vim/vim/bundle/PIV
-	url = git://github.com/spf13/PIV.git
-[submodule "vim/vim/bundle/neocomplcache"]
-	path = vim/vim/bundle/neocomplcache
-	url = git://github.com/Shougo/neocomplcache.git
-[submodule "vim/vim/bundle/vim-gitgutter"]
-	path = vim/vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
 [submodule "zsh/pure"]
 	path = zsh/pure
 	url = https://github.com/K-Phoen/pure.git
+[submodule "vim/vim/bundle/vundle"]
+	path = vim/vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git

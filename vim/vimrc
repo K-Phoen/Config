@@ -25,12 +25,7 @@ set noswapfile                  " Use an SCM instead of swap files
 
 set shell=zsh                   " Use Zsh as default shell
 set wildmenu                    " Enhanced command line completion.
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/cache/**,*/logs/**,*/zend/** " Ignore certain files
-
-" Uncomment the following to have Vim jump to the last position when reopening
-" a file
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/zend/** " Ignore certain files
 
 " redefine tabs
 set expandtab       " no real tabs please!
@@ -50,7 +45,6 @@ set sidescrolloff=5
 
 set formatoptions+=or " see http://stackoverflow.com/questions/3298820/vim-phpdoc-multiline-comment-autoindent/3303017#3303017
 set wrap            " long lines wrap and continue to the next line
-
 
 
 " Search
@@ -89,9 +83,10 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'K-Phoen/vim-xdebug'
-Bundle 'EvanDotPro/phpcomplete.vim'
+Bundle 'Shougo/neocomplcache'
 Bundle 'spf13/PIV'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on     " required!
 
@@ -105,6 +100,9 @@ set background=dark
 colorscheme solarized
 
 
+" Custom mappings
+"============
+
 " Highlight unwanted spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -113,6 +111,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd BufWinLeave * call clearmatches()
 
+" have Vim jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
 
 " Toggle line numbers and fold column for easy copying:
 nnoremap <C-l> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -149,13 +150,10 @@ set pastetoggle=<F2>
 " Plugin specifics
 "=================
 
-" define my name for snipmate plugin
-let g:snips_author = 'Kévin Gomez <contact@kevingomez.fr>'
-let g:snips_company = ''
-
-" vim-powerline
+" vim-airline
 set laststatus=2
-let g:Powerline_symbols = 'unicode'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
 
 " tagbar
 let g:tagbar_left = 1           " display the tagbar on the left side
@@ -190,10 +188,6 @@ hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
 hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
 hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
 
-" Automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menu,preview,longest
-
 " PIV
 let g:DisableAutoPHPFolding = 1
 let g:PIVAutoClose = 0
@@ -203,9 +197,11 @@ let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_max_list = 15
-let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_max_list = 10
+let g:neocomplcache_enable_auto_select = 0
+let g:neocomplete#force_overwrite_completefunc = 1
 
 " SuperTab like snippets behavior.
 imap <silent><expr><TAB> neosnippet#expandable() ?
@@ -226,29 +222,9 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns._ = '\h\w*'
 
-" Plugin key-mappings.
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <expr><CR> neocomplcache#complete_common_string()
-
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-" <CR>: close popup
-" <s-CR>: close popup and save indent.
-inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()"\<CR>" : "\<CR>"
-inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,twig,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -259,15 +235,9 @@ if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
 
 " git gutter
 highlight clear SignColumn

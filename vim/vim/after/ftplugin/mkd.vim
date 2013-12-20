@@ -1,2 +1,0 @@
-" disable folding
-setlocal nofoldenable

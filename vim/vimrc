@@ -164,8 +164,8 @@ let g:tagbar_autofocus = 1      " the cursor will move to the Tagbar window when
 nnoremap <silent> <F10> :TagbarToggle<CR>
 
 " Syntastic
-let g:syntastic_auto_loc_list = 1   " auto open/close the errors list
-let g:syntastic_quiet_warnings = 1  " we don't want the warnings to be displayed
+let g:syntastic_auto_loc_list = 1                       " auto open/close the errors list
+let g:syntastic_quiet_messages = {'level': 'warnings'}  " don't want warnings to be displayed
 
 " Ctags
 set tags=./tags;/,~/.vimtags,tags,vendor.tags

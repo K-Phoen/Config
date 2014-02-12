@@ -2,21 +2,15 @@ Vim
 ===
 
 * Syntax highlighting
-* Filetype plugin (with indent)
 * Jump to the last position when reopening a file
 * Improved status line
 * Highlights unwanted spaces
 * xdebug integration
-* Snippets: snipmate plugin + customized snippets (based on [vim-symfony-snipmate](https://github.com/themouette/vim-symfony-snipmate))
-* Symfony support:
-    * snippets
-    * [vim-symfony plugin](https://github.com/soh335/vim-symfony)
 * [Tagbar plugin](https://github.com/majutsushi/tagbar)
 * Autocompletion
     * PHPComplete
     * PythonComplete
     * Supertab
-* NerdTree
 * New commands:
     * `:W` will save the current file with sudo
 * etc.
@@ -47,19 +41,11 @@ Note: the **map leader** is `,`.
 * `F7` checks the syntax of the current file
 * `F9` runs the current file
 
-#### Symfony
-
-* `F8`  will switch from the action to the view and from the view to the action.
-
 ### JavaScript
 
 * `F7` will launch the linter on the current file (this needs gjslint)
 
 ### Python
-
-* `F9` runs the current file
-
-### Scala
 
 * `F9` runs the current file
 

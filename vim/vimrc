@@ -88,6 +88,10 @@ Bundle 'spf13/PIV'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 
+" Go plugins
+Bundle 'Blackrush/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
+
 filetype plugin indent on     " required!
 
 

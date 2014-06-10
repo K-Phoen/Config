@@ -89,7 +89,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 
 " Go plugins
-Bundle 'Blackrush/vim-gocode'
+Bundle 'nsf/gocode'
 Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on     " required!

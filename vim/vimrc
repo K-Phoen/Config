@@ -73,20 +73,23 @@ filetype off                  " required by vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
-Bundle 'K-Phoen/vim-xdebug'
-Bundle 'Shougo/neocomplcache'
-Bundle 'spf13/PIV'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'K-Phoen/vim-xdebug'
+Plugin 'Shougo/neocomplcache'
+Plugin 'spf13/PIV'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
+Plugin 'Townk/vim-autoclose'
 
 " Go plugins
 Bundle 'nsf/gocode'
@@ -154,6 +157,18 @@ set pastetoggle=<F2>
 " Plugin specifics
 "=================
 
+" Tabular
+map <leader>a :Tabularize/
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+" ack
+map <leader>g :Ack
+let g:ackhighlight = 1
+let g:ack_default_options = " -H --nocolor --nogroup --column --smart-case --follow"
+
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -206,12 +221,6 @@ let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_max_list = 10
 let g:neocomplcache_enable_auto_select = 0
 let g:neocomplete#force_overwrite_completefunc = 1
-
-" SuperTab like snippets behavior.
-imap <silent><expr><TAB> neosnippet#expandable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ?
-            \ "\<C-e>" : "\<TAB>")
-smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {

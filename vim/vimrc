@@ -88,8 +88,6 @@ Plugin 'spf13/PIV'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-Plugin 'Townk/vim-autoclose'
 
 " Go plugins
 Bundle 'nsf/gocode'

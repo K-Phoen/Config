@@ -142,9 +142,6 @@ command W w !sudo tee % > /dev/null
 " edit vimrc in a new tab
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 
-map <silent><leader><Right> <C-T> " go to the declaration of a class, variable, ...)
-map <silent><leader><Left> <C-]>  " go back
-
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
 " F2 = toggle paste mode
 nnoremap <F2> :set invpaste paste?<Enter>
@@ -161,11 +158,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
-
-" ack
-map <leader>g :Ack
-let g:ackhighlight = 1
-let g:ack_default_options = " -H --nocolor --nogroup --column --smart-case --follow"
 
 " vim-airline
 set laststatus=2

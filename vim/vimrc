@@ -154,9 +154,7 @@ set pastetoggle=<F2>
 
 " Tabular
 map <leader>a :Tabularize/
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a= :Tabularize /=><CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " vim-airline

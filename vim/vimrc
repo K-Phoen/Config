@@ -90,8 +90,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 
 " Go plugins
-Bundle 'nsf/gocode'
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'fatih/vim-go'
 
 filetype plugin indent on     " required!
 

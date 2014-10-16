@@ -89,6 +89,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 
+" Puppet plugins
+Plugin 'puppetlabs/puppet-syntax-vim'
+
 " Go plugins
 Plugin 'fatih/vim-go'
 

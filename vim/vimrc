@@ -157,7 +157,6 @@ set pastetoggle=<F2>
 " Tabular
 map <leader>a :Tabularize/
 vmap <Leader>a= :Tabularize /=><CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " vim-airline
 set laststatus=2

@@ -50,13 +50,6 @@ Note: the **map leader** is `,`.
 * `F9` runs the current file
 
 
-Xmonad
-======
-
-* Gnome integration
-* Some usefull shortcuts
-
-
 Zsh
 ===
 

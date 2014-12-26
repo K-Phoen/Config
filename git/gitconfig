@@ -1,6 +1,6 @@
 [user]
   name = Kévin Gomez
-  email = geek63@gmail.com
+  email = contact@kevingomez.fr
 
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol

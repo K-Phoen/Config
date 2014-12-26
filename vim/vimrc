@@ -243,3 +243,7 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
 " git gutter
 highlight clear SignColumn
+
+" Read vim config defined in files
+set modeline
+set modelines=1

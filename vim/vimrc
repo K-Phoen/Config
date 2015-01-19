@@ -27,6 +27,10 @@ set shell=zsh                   " Use Zsh as default shell
 set wildmenu                    " Enhanced command line completion.
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/zend/** " Ignore certain files
 
+" Read vim config defined in files
+set modeline
+set modelines=1
+
 " redefine tabs
 set expandtab       " no real tabs please!
 set shiftwidth=2    " auto-indent amount when using cindent, >>, << and stuff
@@ -82,8 +86,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplcache'
-Plugin 'spf13/PIV'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
@@ -174,75 +176,15 @@ nnoremap <silent> <F10> :TagbarToggle<CR>
 let g:syntastic_auto_loc_list = 1                       " auto open/close the errors list
 let g:syntastic_quiet_messages = {'level': 'warnings'}  " don't want warnings to be displayed
 
-" Ctags
-set tags=./tags;/,~/.vimtags,tags,vendor.tags
-
 " ctrlp
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$|app/cache',
     \ 'file': '\.exe$\|\.so$\|\.dll$' }
 let g:ctrlp_clear_cache_on_exit = 0
-
-" OmniComplete
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-        \if &omnifunc == "" |
-        \setlocal omnifunc=syntaxcomplete#Complete |
-        \endif
-endif
 
 hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
 hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
 hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
 
-" PIV
-let g:DisableAutoPHPFolding = 1
-let g:PIVAutoClose = 0
-
-" neocomplcache
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_max_list = 10
-let g:neocomplcache_enable_auto_select = 0
-let g:neocomplete#force_overwrite_completefunc = 1
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
-            \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns._ = '\h\w*'
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
 " git gutter
 highlight clear SignColumn
-
-" Read vim config defined in files
-set modeline
-set modelines=1

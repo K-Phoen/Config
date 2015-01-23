@@ -13,7 +13,7 @@ set cursorline
 " Behaviors
 set nocompatible
 set encoding=utf-8
-set backspace=indent,eol,start
+set backspace=indent,eol,start  " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set autoindent                  " Always set autoindenting on
 set copyindent                  " copy the previous indentation on autoindenting
 set ruler                       " Always show current positions along the bottom
@@ -54,6 +54,7 @@ set wrap              " long lines wrap and continue to the next line
 
 set omnifunc=syntaxcomplete#Complete
 "set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
+set completeopt-=preview " disable the preview window
 
 
 " Search
@@ -88,12 +89,13 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
+Plugin 'Valloric/YouCompleteMe'
 
 " Puppet plugins
 Plugin 'puppetlabs/puppet-syntax-vim'

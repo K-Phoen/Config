@@ -33,11 +33,11 @@ set modelines=1
 
 " redefine tabs
 set expandtab       " no real tabs please!
-set shiftwidth=2    " auto-indent amount when using cindent, >>, << and stuff
+set shiftwidth=4    " auto-indent amount when using cindent, >>, << and stuff
                     " like that
-set softtabstop=2   " when hitting tab or backspace, how many spaces should a
+set softtabstop=4   " when hitting tab or backspace, how many spaces should a
                     " tab be (see expandtab)
-set tabstop=2       " real tabs should be 2
+set tabstop=4       " real tabs should be 2
 
 set list
 set listchars=tab:▸\ , " display special chars for tabs

@@ -5,4 +5,4 @@ set spell
 set spelllang=fr
 
 " make and open
-map <leader>b :!make && xdg-open '%:r'.pdf<CR><CR>
+map <buffer> <F9> :!make && xdg-open '%:r'.pdf<CR><CR>

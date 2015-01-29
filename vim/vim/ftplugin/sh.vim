@@ -1,1 +1,1 @@
-noremap <F9> :! ./%<CR>
+map <buffer> <F9> :! ./%<CR>

@@ -96,6 +96,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Raimondi/delimitMate'
 
 " Puppet plugins
 Plugin 'puppetlabs/puppet-syntax-vim'

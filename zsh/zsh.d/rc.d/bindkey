@@ -3,7 +3,7 @@ bindkey '^I' complete-word # complete on tab, leave expansion to _expand
 #WORDCHARS=${WORDCHARS//[&=\/;!#%{]}
 #WORDCHARS=${WORDCHARS//[&=\  ;!#%{]}
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-bindkey -v
+#bindkey -v
 #bindkey -e
 bindkey '^?' backward-delete-char
 bindkey '^[[1~' beginning-of-line

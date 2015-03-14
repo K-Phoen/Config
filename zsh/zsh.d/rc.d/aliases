@@ -1,5 +1,4 @@
 # des alias utiles
-alias aptupgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 alias grep='grep --color=auto'
 alias lh='ls -lh --color=auto'
 

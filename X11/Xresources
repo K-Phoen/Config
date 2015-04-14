@@ -1,0 +1,7 @@
+XTerm*locale: true
+Xterm*saveLines: 40960
+xterm*faceName: DejaVu Sans Mono:size=12:antialias=true
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true

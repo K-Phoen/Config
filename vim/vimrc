@@ -104,6 +104,9 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 " Go plugins
 Plugin 'fatih/vim-go'
 
+" Logstash plugins
+Plugin 'robbles/logstash.vim'
+
 filetype plugin indent on     " required!
 
 

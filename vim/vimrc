@@ -107,6 +107,9 @@ Plugin 'fatih/vim-go'
 " Logstash plugins
 Plugin 'robbles/logstash.vim'
 
+" DB plugins
+Plugin 'vim-scripts/dbext.vim'
+
 filetype plugin indent on     " required!
 
 

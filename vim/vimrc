@@ -86,6 +86,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " My bundles
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'

@@ -40,7 +40,7 @@ set softtabstop=4   " when hitting tab or backspace, how many spaces should a
 set tabstop=4       " real tabs should be 2
 
 set list
-set listchars=tab:▸\ , " display special chars for tabs
+set listchars=nbsp:•,tab:▸\ , " display special chars for tabs
 
 set scrolloff=5     " Keep x line for scope while scrolling
 set sidescrolloff=5

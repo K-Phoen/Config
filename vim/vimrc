@@ -48,6 +48,14 @@ set sidescrolloff=5
 set formatoptions+=or " see http://stackoverflow.com/questions/3298820/vim-phpdoc-multiline-comment-autoindent/3303017#3303017
 set wrap              " long lines wrap and continue to the next line
 
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
 
 " Completion
 "===========

@@ -56,6 +56,9 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+" NETRW listing should be trees by default
+let g:netrw_liststyle=3
+
 
 " Completion
 "===========

@@ -1,6 +1,3 @@
-" Set title on X window
-set title
-
 " make plugins smoother (don't redraw while executing macros)
 set lazyredraw
 
@@ -10,22 +7,9 @@ let mapleader = ","
 " Add a line under the cursor (reverse color)
 set cursorline
 
-" Behaviors
-set nocompatible
-set encoding=utf-8
-set backspace=indent,eol,start  " http://vim.wikia.com/wiki/Backspace_and_delete_problems
-set autoindent                  " Always set autoindenting on
-set copyindent                  " copy the previous indentation on autoindenting
-set ruler                       " Always show current positions along the bottom
-set number                      " turn on line numbers
+set number " turn on line numbers
 
-set nobackup                    " Don't make a backup before overwriting a file
-set nowritebackup               " And again.
-set noswapfile                  " Use an SCM instead of swap files
-
-set shell=zsh                   " Use Zsh as default shell
-set wildmenu                    " Enhanced command line completion.
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*.pyo,*/zend/** " Ignore certain files
+set shell=/bin/zsh " Use Zsh as default shell"
 
 " Read vim config defined in files
 set modeline
@@ -40,13 +24,12 @@ set softtabstop=4   " when hitting tab or backspace, how many spaces should a
 set tabstop=4       " real tabs should be 2
 
 set list
-set listchars=nbsp:•,tab:▸\ , " display special chars for tabs
+set listchars=nbsp:˽,tab:▸\ , " display special chars for tabs
 
 set scrolloff=5     " Keep x line for scope while scrolling
 set sidescrolloff=5
 
-set formatoptions+=or " see http://stackoverflow.com/questions/3298820/vim-phpdoc-multiline-comment-autoindent/3303017#3303017
-set wrap              " long lines wrap and continue to the next line
+set mouse-=a " Disable the mouse
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
@@ -56,17 +39,18 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-" NETRW listing should be trees by default
-let g:netrw_liststyle=3
-
+" Enable syntax highlighting
+syntax on
 
 " Completion
 "===========
 
-set omnifunc=syntaxcomplete#Complete
-"set complete=.,w,b,u,t,i,k~/.vim/syntax/php.api
 set completeopt-=preview " disable the preview window
+set completeopt+=menu,longest
 
+" Complete with more things.
+set complete=.,w,b,u,U,i,d,t
+set completeopt=menu,longest
 
 " Search
 "=======
@@ -74,7 +58,8 @@ set completeopt-=preview " disable the preview window
 set hlsearch        " Highlight search matches
 set incsearch       " ...dynamically as they are typed.
 " Clear search highlight
-map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
+" does not work with neovim
+" map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 
 " These two options, when set together, will make /-style searches
 " case-sensitive only if there is a capital letter in the search expression.
@@ -82,47 +67,26 @@ map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 set ignorecase
 set smartcase
 
-" Enable syntax highlighting
-syntax on
 
-
-" Bundles
+" Plugins
 "========
 
-filetype off                  " required by vundle
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'benekastah/neomake'
+Plug 'altercation/vim-colors-solarized'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'Raimondi/delimitMate'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'Valloric/YouCompleteMe'
 
-Plugin 'gmarik/vundle'
-
-" My bundles
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'godlygeek/tabular'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
-
-" Puppet plugins
-Plugin 'puppetlabs/puppet-syntax-vim'
-
-" Go plugins
-Plugin 'fatih/vim-go'
-
-" Logstash plugins
-Plugin 'robbles/logstash.vim'
-
-" DB plugins
-Plugin 'vim-scripts/dbext.vim'
-
-filetype plugin indent on     " required!
+" Add plugins to &runtimepath
+call plug#end()
 
 
 " Theme setup
@@ -135,7 +99,7 @@ colorscheme solarized
 
 
 " Custom mappings
-"============
+"================
 
 " Highlight unwanted spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -181,6 +145,9 @@ set pastetoggle=<F2>
 " Plugin specifics
 "=================
 
+" Neomake
+autocmd! BufWritePost * Neomake " Syntax check on buffer write
+
 " Tabular
 map <leader>a :Tabularize/
 vmap <Leader>a= :Tabularize /=><CR>
@@ -198,10 +165,6 @@ let g:tagbar_autoshowtag = 1    " always show the current tag in the tagbar
 let g:tagbar_autofocus = 1      " the cursor will move to the Tagbar window when it is opened.
 nnoremap <silent> <F10> :TagbarToggle<CR>
 
-" Syntastic
-let g:syntastic_auto_loc_list = 1                       " auto open/close the errors list
-let g:syntastic_quiet_messages = {'level': 'warnings'}  " don't want warnings to be displayed
-
 " ctrlp
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$|app/cache',
@@ -214,3 +177,6 @@ hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=da
 
 " git gutter
 highlight clear SignColumn
+
+" FZF.
+nnoremap <C-P> :FZF<CR>

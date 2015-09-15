@@ -9,6 +9,11 @@ set cursorline
 
 set number " turn on line numbers
 
+
+set nobackup                    " Don't make a backup before overwriting a file
+set nowritebackup               " And again.
+set noswapfile                  " Use an SCM instead of swap files"
+
 set shell=/bin/zsh " Use Zsh as default shell"
 
 " Read vim config defined in files
@@ -58,8 +63,7 @@ set completeopt=menu,longest
 set hlsearch        " Highlight search matches
 set incsearch       " ...dynamically as they are typed.
 " Clear search highlight
-" does not work with neovim
-" map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
+map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 
 " These two options, when set together, will make /-style searches
 " case-sensitive only if there is a capital letter in the search expression.

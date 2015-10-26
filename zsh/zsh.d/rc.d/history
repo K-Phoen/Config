@@ -5,3 +5,5 @@ HISTFILE=~/.histfile
 HISTSIZE=2048
 SAVEHIST=2048
 setopt appendhistory autocd extendedglob notify nonomatch PROMPT_SUBST
+
+setopt hist_ignore_all_dups # don't store duplicates in history at all, even if they are *not* typed in a row (as opposed to hist_ignore_dups)

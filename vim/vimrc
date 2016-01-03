@@ -89,8 +89,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/unite.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'StanAngeloff/php.vim'
 Plug 'hoaproject/Contributions-Vim-Pp'
@@ -182,13 +180,6 @@ highlight clear SignColumn
 
 " FZF.
 nnoremap <C-P> :FZF<CR>
-
-""" Unite.
-let g:unite_source_grep_command='ag'
-let g:unite_source_grep_default_opts='--vimgrep --nocolor --nogroup '
-let g:unite_source_grep_recursive_opt=''
-
-nnoremap <Leader>/ :Unite grep:. -no-split -auto-preview<CR>
 
 " StanAngeloff/php.vim
 function! PhpSyntaxOverride()

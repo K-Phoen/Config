@@ -1,0 +1,1 @@
+/home/kevin/Config/vim/vimrc

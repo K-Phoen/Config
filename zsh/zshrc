@@ -32,3 +32,5 @@ if [ -d ~/.zsh.d/rc.d/ ]; then
   done
   unset i
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

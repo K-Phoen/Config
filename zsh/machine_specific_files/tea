@@ -1,0 +1,31 @@
+export DEFAULT_USERNAME=kevin
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:/home/kevin/sandbox/neovim/build/bin:$HOME/.composer/vendor/willdurand/pman/bin:$PATH"
+eval "$(rbenv init -)"
+
+# workspace
+export TEA_WORKSPACE=/home/kevin/projects
+export TEA_VOLUME_DB=$HOME/temp/docker-db
+export TEA_VOLUME_MONGO=$HOME/temp/docker-mongo
+#. /home/kevin/projects/cookbooks/docker/container.bashrc.bash
+
+# tea-sub
+eval "$(/home/kevin/projects/tea-sub/bin/tea init -)"
+
+# go
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/sandbox/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/.composer/vendor/bin/
+
+#alias vim='nvim'
+alias be='bundle exec'
+
+export PAGER='less'
+
+function localproxy() {
+  local port="${1:-8888}"
+  export http_proxy=http://127.0.0.1:"$port" && export https_proxy="$http_proxy"
+  echo "http_proxy: ${http_proxy}"
+  echo "https_proxy: ${https_proxy}"
+}

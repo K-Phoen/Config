@@ -1,6 +1,7 @@
 # des alias utiles
 alias grep='grep --color=auto'
 alias lh='ls -lh --color=auto'
+alias ll='lh'
 
 # git
 alias gst='git status'

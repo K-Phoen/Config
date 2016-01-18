@@ -77,7 +77,6 @@ map <silent> <C-H> :let @/=""<CR>:echo "Cleared search register."<cr>
 set ignorecase
 set smartcase
 
-
 " Plugins
 "========
 
@@ -93,9 +92,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'StanAngeloff/php.vim'
 Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'Valloric/YouCompleteMe'
+Plug 'fntlnz/atags.vim'
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -193,3 +194,12 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" atags.vim
+map <Leader>c :call atags#generate()<cr> " rebuild tags
+
+" shawncplus/phpcomplete.vim
+let php_sync_method=-1 " sync by search
+let g:phpcomplete_mappings = {
+  \ 'jump_to_def_split': ',d',
+  \ }

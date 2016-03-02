@@ -94,7 +94,6 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'Valloric/YouCompleteMe'
-Plug 'fntlnz/atags.vim'
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
@@ -194,9 +193,6 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
-
-" atags.vim
-map <Leader>c :call atags#generate()<cr> " rebuild tags
 
 " shawncplus/phpcomplete.vim
 let php_sync_method=-1 " sync by search

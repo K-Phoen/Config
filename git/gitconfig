@@ -1,6 +1,7 @@
 [user]
 name = Kévin Gomez
 email = contact@kevingomez.fr
+signingkey = 35550466
 
 [core]
 editor = vim
@@ -42,3 +43,6 @@ username = "K-Phoen"
 
 [alias]
 slog = "log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)    %an%Creset' --abbrev-commit"
+
+[commit]
+gpgsign = true

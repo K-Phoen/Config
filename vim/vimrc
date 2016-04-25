@@ -93,7 +93,6 @@ Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'Valloric/YouCompleteMe'
@@ -162,10 +161,6 @@ set pastetoggle=<F2>
 
 " Neomake
 autocmd! BufWritePost * Neomake " Syntax check on buffer write
-
-" Tabular
-map <leader>a :Tabularize/
-vmap <Leader>a= :Tabularize /=><CR>
 
 " vim-airline
 set laststatus=2

@@ -62,21 +62,5 @@ for f in $files ; do
                 error "JS possibility error detected in '$f', abort!"
             fi
         fi
-
-        # Fix permissions
-        [ ! $DISABLE_FIX_PERMISSIONS ] && chmod 644 "$f"
-
-        # Don't clean images, it could break them
-        if [ ! $DISABLE_CLEAN_FILES ] && [[ ! "$f" =~ .+\.(ico|png|gif|jpg|jpeg)$ ]] ; then
-            # Remove trailing whitespaces
-            sed -i 's/[[:space:]]*$//' "$f"
-            # Remove ^M
-            sed -i -e '//d' "$f"
-        fi
-
-        # Re-add the file to the git index
-        git add "$f"
     fi
 done
-
-msg 'Success.'

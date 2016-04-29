@@ -1,0 +1,10 @@
+#!/bin/bash
+
+LIGHT_GREEN='\e[1;32m'
+NO_FORMAT='\e[0m'
+UNDERLINE='\e[4m'
+RESET_UNDERLINE='\e[24m'
+
+COMMIT_MESSAGE="$(git show -s --format=%B HEAD)"
+
+echo -e "${LIGHT_GREEN}When applied, this commit will ${UNDERLINE}${COMMIT_MESSAGE}${RESET_UNDERLINE}.${NO_FORMAT}"

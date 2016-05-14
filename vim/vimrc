@@ -98,6 +98,8 @@ Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'Valloric/YouCompleteMe'
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -197,3 +199,6 @@ let php_sync_method=-1 " sync by search
 let g:phpcomplete_mappings = {
   \ 'jump_to_def_split': ',d',
   \ }
+
+" vim-php/vim-php-refactoring
+let g:php_refactor_command='php /home/kevin/bin/refactor'

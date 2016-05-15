@@ -98,7 +98,7 @@ Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'Valloric/YouCompleteMe'
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+Plug 'K-Phoen/vim-php-refactoring', { 'for': 'php' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Add plugins to &runtimepath

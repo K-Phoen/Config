@@ -1,5 +1,5 @@
 # pure zsh theme options
 export DEFAULT_USERNAME=kevin
 
-# docker aliases
-alias composer="fig run web composer"
+# pour composer
+PATH=$PATH:~/.composer/vendor/bin/

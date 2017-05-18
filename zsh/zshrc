@@ -1,3 +1,8 @@
+# Source zim
+
+if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
+  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
+fi
 autoload -Uz colors
 colors
 unsetopt beep
@@ -12,15 +17,6 @@ export PAGER=${PAGER:-/usr/bin/most}
 export PATH=~/bin:$PATH
 
 umask 022
-
-shopts=$-
-setopt nullglob
-for sh in /etc/profile.d/*.sh ; do
-  [ -r "$sh" ] && . "$sh"
-done
-unsetopt nullglob
-set -$shopts
-unset sh shopts
 
 [ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
 

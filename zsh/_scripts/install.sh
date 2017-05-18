@@ -5,6 +5,8 @@ echo "[-][zsh] Begin installation ..."
 # we create symbolic links to the config files if they don't already exist
 [ ! -e ~/.zshrc ] && ln -s "`pwd`/zshrc" ~/.zshrc
 [ ! -e ~/.zsh.d ] && ln -s "`pwd`/zsh.d" ~/.zsh.d
+[ ! -e ~/.zim ] && ln -s "`pwd`/zim" ~/.zim
+[ ! -e ~/.zimrc ] && ln -s "`pwd`/zimrc" ~/.zimrc
 
 # change the default login shell if it's not zsh
 current_user=`whoami`

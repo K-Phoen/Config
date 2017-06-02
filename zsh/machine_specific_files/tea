@@ -1,7 +1,7 @@
 export DEFAULT_USERNAME=kevin
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:/home/kevin/sandbox/neovim/build/bin:$HOME/.composer/vendor/willdurand/pman/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/home/kevin/sandbox/neovim/build/bin:$HOME/.composer/vendor/bin/:$HOME/sandbox/phantomjs/bin/:$PATH"
 eval "$(rbenv init -)"
 
 # workspace
@@ -16,14 +16,14 @@ eval "$(/home/kevin/projects/tea-sub/bin/tea init -)"
 # go
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/sandbox/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/.composer/vendor/bin/:~/sandbox/phantomjs/bin/
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export VIMRUNTIME=/home/kevin/sandbox/neovim/runtime
 alias nvim='/home/kevin/sandbox/neovim/build/bin/nvim'
 alias vim='nvim'
 alias be='bundle exec'
-export TERM='xterm-256color'
-export TERMINFO=~/.terminfo
+export TERM='screen-256color'
+#export TERMINFO=~/.terminfo
 
 export PAGER='less'
 
@@ -33,8 +33,6 @@ function localproxy() {
   echo "http_proxy: ${http_proxy}"
   echo "https_proxy: ${https_proxy}"
 }
-
-export PBSDK="$HOME/sandbox/pocketbook-sdk"
 
 export NVM_DIR="/home/kevin/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

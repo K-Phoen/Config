@@ -3,3 +3,5 @@ export DEFAULT_USERNAME=kevin
 
 # pour composer
 PATH=$PATH:~/.composer/vendor/bin/
+
+alias vim='nvim'

@@ -4,9 +4,14 @@ set wildignore+=*/app/cache/*
 
 map <buffer> <F9> :!php %<CR>
 
-" insert current namespace (stolen from willdurand config, which is based on ornicar work: http://github.com/ornicar)
-nmap <buffer> <leader>n "%PdF/r;:%s#/#\\#g<CR>Inamespace  <ESC>d/[A-Z]<CR><ESC>:let @/=""<CR>
+" Omni-completion
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 
-noremap <buffer> <Leader>oi :call PhpRefactorOptimizeUse()<CR>
-noremap <buffer> <Leader>pr :call PhpRefactorRenameProperty()<CR>
-noremap <buffer> <Leader>vr :call PhpRefactorRenameLocalVariable()<CR>
+" Include use statement
+map <Leader>u :call phpactor#UseAdd()<CR>
+
+" Show information about "type" under cursor including current frame
+nnoremap <silent><Leader>t :call phpactor#OffsetTypeInfo()<CR>
+
+" Goto the definition of a class, or a class member (method, property, constant).
+map <Leader>d :call phpactor#GotoDefinition()<CR>

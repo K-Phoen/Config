@@ -97,11 +97,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'hoaproject/Contributions-Vim-Pp'
-Plug 'Valloric/YouCompleteMe'
-Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'K-Phoen/vim-php-refactoring', { 'for': 'php' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
 " Add plugins to &runtimepath
 call plug#end()

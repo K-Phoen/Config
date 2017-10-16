@@ -86,7 +86,7 @@ set smartcase
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 Plug 'altercation/vim-colors-solarized'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'

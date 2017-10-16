@@ -161,9 +161,6 @@ set pastetoggle=<F2>
 " Plugin specifics
 "=================
 
-" Neomake
-autocmd! BufWritePost * Neomake " Syntax check on buffer write
-
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -182,23 +179,3 @@ highlight clear SignColumn
 
 " FZF.
 nnoremap <C-P> :FZF<CR>
-
-" StanAngeloff/php.vim
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
-" shawncplus/phpcomplete.vim
-let php_sync_method=-1 " sync by search
-let g:phpcomplete_mappings = {
-  \ 'jump_to_def_split': ',d',
-  \ }
-
-" vim-php/vim-php-refactoring
-let g:php_refactor_command='php /home/kevin/bin/refactor'

@@ -13,11 +13,6 @@ export TEA_VOLUME_MONGO=$HOME/temp/docker-mongo
 # tea-sub
 eval "$(/home/kevin/projects/tea-sub/bin/tea init -)"
 
-# go
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/sandbox/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
 export VIMRUNTIME=/home/kevin/sandbox/neovim/runtime
 alias nvim='/home/kevin/sandbox/neovim/build/bin/nvim'
 alias vim='nvim'

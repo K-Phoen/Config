@@ -97,7 +97,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'stephpy/vim-yaml'
+Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 

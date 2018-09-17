@@ -14,7 +14,7 @@ fi
 
 export EDITOR=${EDITOR:-/usr/bin/vim}
 export PAGER=${PAGER:-/usr/bin/most}
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/.config/composer/vendor/bin:$PATH
 
 umask 022
 

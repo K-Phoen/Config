@@ -2,6 +2,7 @@
 alias grep='grep --color=auto'
 alias lh='ls -lh --color=auto'
 alias ll='lh'
+alias open='xdg-open'
 
 # git
 alias gst='git status'

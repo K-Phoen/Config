@@ -8,5 +8,5 @@ alias open='xdg-open'
 alias gst='git status'
 
 function mkcd() {
-  mkdir $@ && cd "${@: -1}"
+  mkdir -p $@ && cd "${@: -1}"
 }

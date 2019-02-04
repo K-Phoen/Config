@@ -35,7 +35,7 @@ changed = green
 untracked = cyan
 
 [push]
-default = matching
+	default = current
 
 [credential "https://github.com/"]
 username = "K-Phoen"

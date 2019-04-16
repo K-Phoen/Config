@@ -97,9 +97,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
+Plug 'cespare/vim-toml'
 
 " Add plugins to &runtimepath
 call plug#end()

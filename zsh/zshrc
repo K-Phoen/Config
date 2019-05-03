@@ -29,4 +29,6 @@ if [ -d ~/.zsh.d/rc.d/ ]; then
   unset i
 fi
 
+fpath=(~/.zsh.d/completions $fpath)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -6,6 +6,8 @@ alias open='xdg-open'
 
 # git
 alias gst='git status'
+alias gcm='git checkout master'
+alias gpm='git pull --ff-only origin master'
 
 function mkcd() {
   mkdir -p $@ && cd "${@: -1}"

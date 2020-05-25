@@ -3,3 +3,4 @@
 /tags
 /.vagrant/
 /.phpunit.result.cache
+/coverage.out

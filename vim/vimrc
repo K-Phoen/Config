@@ -99,7 +99,6 @@ Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'

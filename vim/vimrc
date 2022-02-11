@@ -95,13 +95,15 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'hoaproject/Contributions-Vim-Pp'
+"Plug 'hoaproject/Contributions-Vim-Pp'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+"Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'cespare/vim-toml'
+"Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -113,7 +115,7 @@ call plug#end()
 let &t_Co=256         " force the 256-color mode
 let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+colorscheme onedark
 
 hi SpellBad cterm=underline
 

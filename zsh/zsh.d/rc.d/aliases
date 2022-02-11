@@ -6,9 +6,13 @@ alias open='xdg-open'
 
 # git
 alias gst='git status'
-alias gcm='git checkout master'
-alias gpm='git pull --ff-only origin master'
+alias gcm='git checkout $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'
+alias gpm='git pull --ff-only origin $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'
 
 function mkcd() {
   mkdir -p $@ && cd "${@: -1}"
+}
+
+function gpr() {
+  gh pr create --label patch --fill --assignee '@me' $@
 }

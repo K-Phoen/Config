@@ -2,11 +2,35 @@
 name = Kévin Gomez
 email = contact@kevingomez.fr
 
+[includeIf "gitdir:~/sandbox/voi/"]
+  path = ~/.voi.gitconfig
+
 [core]
 editor = vim
 excludesfile = ~/.gitignore.global
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-pager = diff-highlight | less
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    plus-style = syntax "#063B06"
+    minus-style = syntax "#3f0001"
+    syntax-theme = "Solarized (Dark)"
+    dark = true
+    features = unobtrusive-line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
+[interactive]
+    diffFilter = delta --color-only
 
 [merge]
 tool = vimdiff
@@ -37,8 +61,11 @@ untracked = cyan
 [push]
 	default = current
 
-[credential "https://github.com/"]
-username = "K-Phoen"
-
 [alias]
 slog = "log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)    %an%Creset' --abbrev-commit"
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[init]
+	defaultBranch = main

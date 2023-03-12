@@ -1,5 +1,6 @@
 # des alias utiles
 alias grep='grep --color=auto'
+alias watch='watch --color'
 alias lh='ls -lh --color=auto'
 alias ll='lh'
 alias open='xdg-open'
@@ -8,6 +9,7 @@ alias open='xdg-open'
 alias gst='git status'
 alias gcm='git checkout $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'
 alias gpm='git pull --ff-only origin $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'
+alias gpo='git push origin'
 
 function mkcd() {
   mkdir -p $@ && cd "${@: -1}"

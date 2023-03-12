@@ -9,22 +9,29 @@
 # Select what modules you would like enabled.
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
-zmodule directory
+#zmodule directory
 zmodule environment
 zmodule git
 zmodule git-info
-zmodule history
+#zmodule history
 zmodule input
 zmodule utility
 zmodule custom
+# Sets a custom terminal title.
+zmodule termtitle
 
 zmodule zsh-users/zsh-completions
 zmodule completion
 zmodule archive
-zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-syntax-highlighting
 
+# Fish-like history search (up arrow) for Zsh.
+# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
+#zmodule zsh-users/zsh-history-substring-search
+
 zmodule denysdovhan/spaceship-prompt --name spaceship
+
+zmodule zsh-users/zsh-autosuggestions
 
 
 ###################
@@ -66,7 +73,7 @@ SPACESHIP_DOCKER_SHOW='false'
 SPACESHIP_DOCKER_CONTEXT_SHOW='false'
 SPACESHIP_AWS_SHOW='false'
 SPACESHIP_CONDA_SHOW='false'
-SPACESHIP_PYENV_SHOW='false'
+SPACESHIP_PYENV_SHOW='true'
 SPACESHIP_DOTNET_SHOW='false'
 SPACESHIP_EMBER_SHOW='false'
 

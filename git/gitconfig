@@ -1,6 +1,13 @@
 [user]
-name = Kévin Gomez
-email = contact@kevingomez.fr
+  name = Kévin Gomez
+  email = contact@kevingomez.fr
+	signingkey = /home/kevin/.ssh/id_ed25519_perso.pub
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
 
 [includeIf "gitdir:~/sandbox/voi/"]
   path = ~/.voi.gitconfig

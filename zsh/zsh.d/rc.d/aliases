@@ -1,7 +1,7 @@
 # des alias utiles
 alias grep='grep --color=auto'
 alias watch='watch --color'
-alias lh='ls -lh --color=auto'
+alias lh='lsd -lh --color=auto'
 alias ll='lh'
 alias open='xdg-open'
 

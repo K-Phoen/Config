@@ -5,6 +5,8 @@ alias lh='lsd -lh --color=auto'
 alias ll='lh'
 alias open='xdg-open'
 
+alias vim='/usr/bin/nvim'
+
 # git
 alias gst='git status'
 alias gcm='git checkout $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'

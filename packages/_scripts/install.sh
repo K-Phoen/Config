@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "[-][packages] Begin installation ..."
-
 pamac install \
     lsd \
     btop \
@@ -24,5 +22,3 @@ sudo usermod -aG docker ${USER}
 
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
-
-echo "[+][packages] installation complete."

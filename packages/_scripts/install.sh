@@ -13,6 +13,16 @@ pamac install \
     jq \
     github-cli \
     base-devel \
+    discord \
+    clipit \
+    pigz \
+    docker \
+    tmux \
     obsidian
+
+sudo usermod -aG docker ${USER}
+
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
 
 echo "[+][packages] installation complete."

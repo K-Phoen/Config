@@ -16,6 +16,8 @@ pamac install \
     pigz \
     docker \
     tmux \
+    fzf \
+    bat \
     obsidian
 
 sudo usermod -aG docker ${USER}

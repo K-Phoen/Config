@@ -88,11 +88,3 @@ ztermtitle='%n@%m:%~'
 # For (u)rxvt, termite and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
 zhighlighters=(main brackets)
-
-
-#
-# SSH
-#
-
-# Load these ssh identities with the ssh module
-#zssh_ids=(id_rsa)

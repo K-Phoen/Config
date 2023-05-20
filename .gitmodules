@@ -1,9 +1,0 @@
-[submodule "zsh/pure"]
-	path = zsh/pure
-	url = https://github.com/K-Phoen/pure.git
-[submodule "zsh/z"]
-	path = zsh/z
-	url = git@github.com:rupa/z.git
-[submodule "zsh/zim"]
-	path = zsh/zim
-	url = https://github.com/Eriner/zim.git

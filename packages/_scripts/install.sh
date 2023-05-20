@@ -12,6 +12,7 @@ pamac install \
     kubectl \
     jq \
     github-cli \
-    base-devel
+    base-devel \
+    obsidian
 
 echo "[+][packages] installation complete."

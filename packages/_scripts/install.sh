@@ -18,6 +18,7 @@ pamac install \
     tmux \
     fzf \
     bat \
+    direnv \
     obsidian
 
 sudo usermod -aG docker ${USER}

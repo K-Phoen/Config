@@ -57,6 +57,7 @@ source ${ZIM_HOME}/init.zsh
 # ------------
 
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
 
 autoload -Uz colors
 colors
@@ -79,3 +80,4 @@ if [ -d ~/.zsh.d/rc.d/ ]; then
 fi
 
 fpath=(~/.zsh.d/completions $fpath)
+

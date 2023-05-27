@@ -40,3 +40,7 @@
 # https://spacevim.org/layers/lang/typescript/
 [[layers]]
   name = 'lang#typescript'
+
+# https://spacevim.org/layers/lang/jsonnet/
+[[layers]]
+  name = "lang#jsonnet"

@@ -19,6 +19,7 @@ pamac install \
     fzf \
     bat \
     direnv \
+    stern \
     obsidian
 
 sudo usermod -aG docker ${USER}

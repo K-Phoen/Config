@@ -37,6 +37,7 @@ zmodule joke/zim-kubectl
 
 zmodule fzf
 
+zmodule https://github.com/agkozak/zsh-z
 
 ###################
 # MODULE SETTINGS #

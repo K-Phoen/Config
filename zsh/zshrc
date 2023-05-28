@@ -56,8 +56,8 @@ source ${ZIM_HOME}/init.zsh
 # Custom stuff
 # ------------
 
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
 
 autoload -Uz colors
 colors

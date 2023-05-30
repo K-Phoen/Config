@@ -18,11 +18,17 @@
 
     relativenumber = false
 
+    disabled_plugins = ["deoplete-go"]
+
 # Enable autocomplete layer
 [[layers]]
   name = 'autocomplete'
   auto_completion_return_key_behavior = "complete"
   auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+  name = "lsp"
+  enabled_clients = ['gopls']
 
 [[layers]]
   name = 'shell'
@@ -36,6 +42,7 @@
 [[layers]]
   name = 'lang#go'
   format_on_save = true
+  enabled_linters = ['go']
 
 # https://spacevim.org/layers/lang/typescript/
 [[layers]]

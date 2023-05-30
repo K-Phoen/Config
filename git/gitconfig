@@ -9,8 +9,8 @@
 [gpg]
 	format = ssh
 
-[includeIf "gitdir:~/sandbox/voi/"]
-  path = ~/.voi.gitconfig
+[includeIf "gitdir:~/sandbox/work/"]
+  path = ~/.work.gitconfig
 
 [core]
 editor = nvim

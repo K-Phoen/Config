@@ -1,7 +1,7 @@
 [user]
   name = Kévin Gomez
   email = contact@kevingomez.fr
-	signingkey = /home/kevin/.ssh/id_ed25519_perso.pub
+	signingkey = /home/kevin/.ssh/id_ed25519_kevin_perso_xps13.pub
 
 [commit]
 	gpgsign = true

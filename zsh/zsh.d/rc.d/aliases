@@ -13,10 +13,20 @@ alias gcm='git checkout $(git branch -r --points-at refs/remotes/origin/HEAD | g
 alias gpm='git pull --ff-only origin $(git branch -r --points-at refs/remotes/origin/HEAD | grep "\->" | cut -d" " -f5 | cut -d/ -f2)'
 alias gpo='git push origin'
 
+alias f='fzf --preview "bat --color=always --style=numbers {}"'
+
 function mkcd() {
   mkdir -p $@ && cd "${@: -1}"
 }
 
 function gpr() {
-  gh pr create --label patch --fill --assignee '@me' $@
+  gh pr create --fill --assignee '@me' $@
 }
+
+#help() {
+#    "$@" --help 2>&1 | bat --plain --language=help
+#}
+
+# See https://github.com/sharkdp/bat/?tab=readme-ov-file#highlighting---help-messages
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'

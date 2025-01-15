@@ -3,4 +3,4 @@
 # we create symbolic links to the config files if they don't already exist
 [ ! -e ~/.tmux.conf ] && ln -s "`pwd`/tmux.conf" ~/.tmux.conf
 
-[ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+[ ! -d ~/.config/tmux/plugins/catppuccin ] && git clone --branch v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux

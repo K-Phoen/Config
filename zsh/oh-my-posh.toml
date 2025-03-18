@@ -7,11 +7,12 @@ final_space = true
   foreground = 'orange'
   background = 'transparent'
 
-#[transient_prompt]
-#  template = '❯ '
-#  background = 'transparent'
-#  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
-#
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = false
+  notice = true
+
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
@@ -30,9 +31,9 @@ final_space = true
 
   [[blocks.segments]]
     template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}<cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    foreground = '#858585'
     type = 'git'
     style = 'plain'
-    foreground = '#858585'
 
     [blocks.segments.properties]
       branch_icon = ' '
@@ -72,16 +73,17 @@ final_space = true
     style = 'plain'
     foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
+# Display a tooltip when using git-related commands on main/master
 [[tooltips]]
-  type = "git"
-  tips = [ "git" ]
-  style = "diamond"
-  foreground = "#193549"
-  background = "#fffb38"
-  leading_diamond = ""
-  trailing_diamond = ""
-  template = "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '{{ if or (eq .Ref "main") (eq .Ref "master") }}{{ .HEAD }}{{ end }}'
+  foreground = '#000000'
+  background = '#f7b136'
+  type = 'git'
+  style = 'diamond'
+  tips = ['git']
 
   [tooltips.properties]
-  fetch_status = true
-  fetch_upstream_icon = true
+    fetch_status = true
+    fetch_upstream_icon = true

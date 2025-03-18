@@ -45,8 +45,8 @@
   enabled_linters = ['go']
 
 # https://spacevim.org/layers/lang/typescript/
-[[layers]]
-  name = 'lang#typescript'
+#[[layers]]
+#  name = 'lang#typescript'
 
 # https://spacevim.org/layers/lang/jsonnet/
 [[layers]]

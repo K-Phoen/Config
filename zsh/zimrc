@@ -9,25 +9,18 @@
 # Select what modules you would like enabled.
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
-#zmodule directory
 zmodule environment
-zmodule git
 zmodule git-info
-#zmodule history
 zmodule input
 zmodule utility
-zmodule custom
-# Sets a custom terminal title.
+
+# Sets the terminal title to the current directory
 zmodule termtitle
+zstyle ':zim:termtitle' format '%~'
 
 zmodule zsh-users/zsh-completions
 zmodule completion
-zmodule archive
 zmodule zsh-users/zsh-syntax-highlighting
-
-# Fish-like history search (up arrow) for Zsh.
-# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
-#zmodule zsh-users/zsh-history-substring-search
 
 zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 

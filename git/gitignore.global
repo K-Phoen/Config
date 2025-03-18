@@ -4,3 +4,6 @@
 /.vagrant/
 /.phpunit.result.cache
 /coverage.out
+/vendor
+/.venv
+/.yarn/.cache

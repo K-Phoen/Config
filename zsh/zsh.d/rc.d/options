@@ -1,0 +1,2 @@
+# type the name of a directory and it will become the current directory
+setopt autocd

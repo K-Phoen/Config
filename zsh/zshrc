@@ -1,75 +1,60 @@
-# -----------------
-# Zsh configuration
-# -----------------
+ZINIT_HOME="${HOME}/.zinit/zinit.git"
 
-#
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit light agkozak/zsh-z
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# Enable Oh My Posh prompt
+eval "$(~/bin/oh-my-posh init zsh --config ~/Config/zsh/oh-my-posh.toml)"
+
 # History
-#
+HISTSIZE=5000
+HISTFILE=~/.histfile
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# Preview of folders content when completing `cd`
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always $realpath'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
 
-#
-# Input/output
-#
+# Shell integrations
+eval "$(fzf --zsh)"
 
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
-
-# Prompt for spelling correction of commands.
-#setopt CORRECT
-
-# Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
-#WORDCHARS=${WORDCHARS//[\/]}
-
-# -----------------
-# Zim configuration
-# -----------------
-
-# Use degit instead of git as the default tool to install and update modules.
-zstyle ':zim:zmodule' use 'degit'
-
-# ------------------
-# Initialize modules
-# ------------------
-
-ZIM_HOME=~/.zim
-
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-fi
-
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
-
-# ------------
-# Custom stuff
-# ------------
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'
-
-autoload -Uz colors
-colors
-unsetopt beep
-
-export PAGER=${PAGER:-/usr/bin/less}
-export PATH=~/bin:$PATH
-
-umask 022
-
+# Load machine-specific config if it's there
 [ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
 
+# And load even more config
 if [ -d ~/.zsh.d/rc.d/ ]; then
   for i in ~/.zsh.d/rc.d/*; do
     if [ -r $i ]; then
@@ -78,6 +63,3 @@ if [ -d ~/.zsh.d/rc.d/ ]; then
   done
   unset i
 fi
-
-fpath=(~/.zsh.d/completions $fpath)
-

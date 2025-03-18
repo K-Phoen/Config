@@ -1,11 +1,11 @@
-# des alias utiles
 alias grep='grep --color=auto'
 alias watch='watch --color'
-alias lh='lsd -lh --color=auto'
-alias ll='lh'
+alias ll='lsd -lh --color=auto'
 alias open='xdg-open'
-
 alias vim='/usr/bin/nvim'
+
+# Kubernetes
+alias k='kubectl'
 
 # git
 alias gst='git status'

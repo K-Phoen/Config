@@ -3,7 +3,7 @@
 pamac install \
     lsd \
     btop \
-    code \
+    visual-studio-code-bin \
     git-delta \
     helm \
     rancher-k3d-bin \

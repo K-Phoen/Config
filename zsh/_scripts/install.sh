@@ -1,9 +1,13 @@
 #!/bin/bash
 
+if ! command -v oh-my-posh 2>&1 >/dev/null
+then
+    curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+fi
+
 [ -e ~/.zshrc ] && rm ~/.zshrc
 ln -s "`pwd`/zshrc" ~/.zshrc
 [ ! -e ~/.zsh.d ] && ln -s "`pwd`/zsh.d" ~/.zsh.d
-[ ! -e ~/.zimrc ] && ln -s "`pwd`/zimrc" ~/.zimrc
 
 # change the default login shell if it's not zsh
 current_user=`whoami`

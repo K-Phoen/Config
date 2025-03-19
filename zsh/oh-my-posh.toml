@@ -51,6 +51,14 @@ final_space = true
     type = 'text'
     style = 'plain'
 
+  [[blocks.segments]]
+    template = "{{ if .Venv }} <yellow> {{ .Venv }}</>{{ end }}"
+    type = 'python'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
 [[blocks]]
   type = 'rprompt'
   overflow = 'hidden'

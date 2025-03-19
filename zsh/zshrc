@@ -54,6 +54,9 @@ zstyle ':completion:*:git-checkout:*' sort false
 # Shell integrations
 eval "$(fzf --zsh)"
 
+# Add ~/bin to the PATH
+export PATH="$HOME/bin:$PATH"
+
 # Load machine-specific config if it's there
 [ -e ~/.zsh_machine_specific ] && source ~/.zsh_machine_specific
 

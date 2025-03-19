@@ -46,6 +46,11 @@ final_space = true
     type = 'kubectl'
     style = 'plain'
 
+  [[blocks.segments]]
+    template = "{{ if .Env.DEVBOX_SHELL_ENABLED }} <yellow>\uf487 devbox</>{{ end }}"
+    type = 'text'
+    style = 'plain'
+
 [[blocks]]
   type = 'rprompt'
   overflow = 'hidden'

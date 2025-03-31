@@ -95,7 +95,7 @@ final_space = true
   background = '#f7b136'
   type = 'git'
   style = 'diamond'
-  tips = ['git']
+  tips = ['git', 'gpo']
 
   [tooltips.properties]
     fetch_status = true

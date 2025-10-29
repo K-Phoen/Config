@@ -3,6 +3,7 @@ alias watch='watch --color'
 alias ll='lsd -lh --color=auto'
 alias open='xdg-open'
 alias vim='/usr/bin/nvim'
+alias ip='ip -c'
 
 # Kubernetes
 alias k='kubectl'

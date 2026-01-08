@@ -30,11 +30,11 @@ require("lazy").setup({
         },
       },
     },
-  },
-  -- Auto-detect light/dark mode
-  {
-    "f-person/auto-dark-mode.nvim",
-    opts = {},
+    -- Auto-detect light/dark mode
+    {
+      "f-person/auto-dark-mode.nvim",
+      opts = {},
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

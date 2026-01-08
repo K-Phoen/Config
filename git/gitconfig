@@ -73,7 +73,7 @@ untracked = cyan
 [alias]
 slog = "log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)    %an%Creset' --abbrev-commit"
 
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
     insteadOf = https://github.com/
 
 [init]

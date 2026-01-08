@@ -1,3 +1,3 @@
 #!/bin/bash
 
-[ ! -e ~/.config/nvim ] && ln -s "`pwd`/lazyvim" ~/.config/nvim
+[ ! -e ~/.config/nvim ] && ln -s "`pwd`/nvim" ~/.config/nvim

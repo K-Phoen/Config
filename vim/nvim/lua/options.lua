@@ -6,4 +6,5 @@ vim.opt.swapfile = false      -- don't create swapfiles
 vim.opt.number = true         -- set numbered lines
 vim.opt.undofile = true       -- enable persistent undo
 vim.opt.signcolumn = "yes"    -- always show the sign column to avoid jumps when it appears/disappears
-vim.opt.tabstop=4             -- number of columns occupied by a tab 
+vim.opt.tabstop = 4           -- number of columns occupied by a tab 
+vim.opt.cursorline = true     -- highlight the cursor line

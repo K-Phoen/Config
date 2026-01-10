@@ -12,6 +12,7 @@ vim.opt.mouse = ""            -- disable mouse
 vim.opt.cc = "80,120"         -- display rulers
 vim.opt.sidescrolloff = 8     -- Columns of context when scrolling
 vim.opt.scrolloff = 4         -- Lines of context when scrolling
+vim.opt.conceallevel = 2      -- Hide * markup for bold and italic, but not markers with substitutions
 
 -- Enable inline diagnostics
 vim.diagnostic.config({ virtual_text = true })

@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end)
       end
 
-      -- Enable LLM-based inline completions.
+      -- Enable inline completions.
       if
         client:supports_method(
           vim.lsp.protocol.Methods.textDocument_inlineCompletion

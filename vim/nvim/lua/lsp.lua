@@ -1,6 +1,8 @@
 -- Enable and configure the built-in LSP client.
 vim.lsp.enable({
+  "cue",
   "gopls",
+  "rust_analyzer",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

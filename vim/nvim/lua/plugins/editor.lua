@@ -1,3 +1,5 @@
+-- TODO: https://github.com/jake-stewart/multicursor.nvim ?
+
 return {
   -- Adjust tab width based on the current file
   {
@@ -9,5 +11,9 @@ return {
     "folke/ts-comments.nvim",
     opts = {},
     event = "VeryLazy",
+  },
+  -- LSP configs
+  {
+    "neovim/nvim-lspconfig",
   },
 }

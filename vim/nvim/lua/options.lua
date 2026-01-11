@@ -16,3 +16,10 @@ vim.opt.conceallevel = 2      -- Hide * markup for bold and italic, but not mark
 
 -- Enable inline diagnostics
 vim.diagnostic.config({ virtual_text = true })
+
+-- Set completeopt to have a better completion experience
+-- :help completeopt
+-- menuone: popup even when there's only one match
+-- noinsert: Do not insert text until a selection is made
+-- fuzzy: enable fuzzy-matching for completion candidates
+vim.o.completeopt = "menuone,noinsert,noselect"

@@ -2,46 +2,31 @@
 
 local commands = {
   -- Pickers & explorers
-  {
-    name = "Search: Files",
-    action = function() Snacks.picker.files() end,
-  },
-  {
-    name = "Search: Recent",
-    action = function() Snacks.picker.recent() end,
-  },
-  {
-    name = "Search: Grep",
-    action = function() Snacks.picker.grep() end,
-  },
-  {
-    name = "Search: Notifications history",
-    action = function() Snacks.picker.notifications() end,
-  },
-  {
-    name = "Search: Commands history",
-    action = function() Snacks.picker.command_history() end,
-  },
-  {
-    name = "Code: Toogle document symbols",
-    action = "<leader>cs",
-  },
+  { name = "Search: Files", action = function() Snacks.picker.files() end },
+  { name = "Search: Recent", action = function() Snacks.picker.recent() end },
+  { name = "Search: Grep", action = function() Snacks.picker.grep() end },
+  { name = "Search: Notifications history", action = function() Snacks.picker.notifications() end },
+  { name = "Search: Commands history", action = function() Snacks.picker.command_history() end },
+  { name = "Search: Buffers", action = function() Snacks.picker.buffers() end },
+  { name = "Search: Help pages", action = function() Snacks.picker.help() end },
+  { name = "Search: Man pages", action = function() Snacks.picker.man() end },
+  { name = "Search: Keymaps", action = function() Snacks.picker.keymaps() end },
+  { name = "Search: Symbols (buffer)", action = function() Snacks.picker.lsp_symbols() end },
+  { name = "Search: Symbols (workspace)", action = function() Snacks.picker.lsp_workspace_symbols() end },
+  -- Git
+  { name = "Git: Log", action = function() Snacks.picker.git_log() end },
+  { name = "Git: Branches", action = function() Snacks.picker.git_branches() end },
+  { name = "Git: Status", action = function() Snacks.picker.git_status() end },
+  { name = "Git: Diff", action = function() Snacks.picker.git_diff() end },
   -- Shortcuts
-  {
-    name = "Lazy: Open dashboard",
-    action = ":Lazy",
-  },
-  {
-    name = "Tab: Close",
-    action = ":tabclose",
-  },
-  {
-    name = "Tab: New",
-    action = ":tabnew",
-  },
+  { name = "Config: Edit", action = function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end },
+  { name = "Lazy: Open dashboard", action = ":Lazy" },
+  { name = "Tab: Close", action = ":tabclose" },
+  { name = "Tab: New", action = ":tabnew" },
   -- UI
+  { name = "Code: Toogle document symbols", action = "<leader>cs" },
   {
-    name = "Focus active scope: Toggle",
+    name = "Active scope: Toggle focus",
     action = function()
       local snacks_dim = require("snacks").dim
       if snacks_dim.enabled then
@@ -177,6 +162,10 @@ return {
       },
       indent = { enabled = true }, -- Visualize indent guides and scopes
       picker = { enabled = true }, -- Fuzzy finders
+      explorer = { -- File explorer
+        enabled = true,
+        replace_netrw = true, -- Replace netrw with the snacks explorer
+      },
       notifier = { enabled = true },
       quickfile = { enabled = true }, -- When doing nvim somefile.txt, it will render the file as quickly as possible, before loading your plugins.
       scope = { enabled = true }, -- Scope detection
@@ -184,16 +173,9 @@ return {
       words = { enabled = true }, -- Auto-show LSP references and quickly navigate between them
     },
     keys = {
-      {
-        "<C-o>",
-        function() Snacks.picker.files() end,
-        desc = "Search files",
-      },
-      {
-        "<C-p>",
-        function() show_commands() end,
-        desc = "Command Palette",
-      },
+      { "<C-o>", function() Snacks.picker.files() end, desc = "Search files" },
+      { "<C-p>", function() show_commands() end, desc = "Command Palette" },
+      { "<C-e>", function() Snacks.explorer() end, desc = "File Explorer" },
     },
   },
   -- Better UI for messages, cmdline and the popupmenu.
@@ -259,146 +241,6 @@ return {
       },
     },
   },
-  -- Filesystem explorer
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    cmd = "Neotree",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons", -- optional, but recommended
-    },
-    keys = {
-      {
-        "<leader>fe",
-        function()
-          local path = vim.api.nvim_buf_get_name(0)
-          git_root = Snacks.git.get_root(path)
-
-          require("neo-tree.command").execute({ toggle = true, dir = Snacks.git.get_root(path) })
-        end,
-        desc = "Explorer NeoTree (Git Root Dir)",
-      },
-      {
-        "<leader>fE",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-        end,
-        desc = "Explorer NeoTree (cwd)",
-      },
-      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Git Root Dir)", remap = true },
-      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
-      {
-        "<leader>ge",
-        function()
-          require("neo-tree.command").execute({ source = "git_status", toggle = true })
-        end,
-        desc = "Git Explorer",
-      },
-      {
-        "<leader>be",
-        function()
-          require("neo-tree.command").execute({ source = "buffers", toggle = true })
-        end,
-        desc = "Buffer Explorer",
-      },
-    },
-    deactivate = function()
-      vim.cmd([[Neotree close]])
-    end,
-    init = function()
-      -- FIX: use `autocmd` for lazy-loading neo-tree instead of directly requiring it,
-      -- because `cwd` is not set up properly.
-      vim.api.nvim_create_autocmd("BufEnter", {
-        group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
-        desc = "Start Neo-tree with directory",
-        once = true,
-        callback = function()
-          if package.loaded["neo-tree"] then
-            return
-          else
-            local stats = vim.uv.fs_stat(vim.fn.argv(0))
-            if stats and stats.type == "directory" then
-              require("neo-tree")
-            end
-          end
-        end,
-      })
-    end,
-    opts = {
-      sources = { "filesystem", "buffers", "git_status" },
-      source_selector = {
-        winbar = true
-      },
-      open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
-      filesystem = {
-        bind_to_cwd = false,
-        follow_current_file = { enabled = true },
-        use_libuv_file_watcher = true,
-      },
-      window = {
-        mappings = {
-          ["l"] = "open",
-          ["h"] = "close_node",
-          ["<space>"] = "none",
-          ["Y"] = {
-            function(state)
-              local node = state.tree:get_node()
-              local path = node:get_id()
-              vim.fn.setreg("+", path, "c")
-            end,
-            desc = "Copy Path to Clipboard",
-          },
-          ["O"] = {
-            function(state)
-              require("lazy.util").open(state.tree:get_node().path, { system = true })
-            end,
-            desc = "Open with System Application",
-          },
-          ["P"] = { "toggle_preview", config = { use_float = true } },
-          -- Switch between filesystem, buffers and git_status
-          ['e'] = function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
-          ['b'] = function() vim.api.nvim_exec('Neotree focus buffers left', true) end,
-          ['g'] = function() vim.api.nvim_exec('Neotree focus git_status left', true) end,
-        },
-      },
-      default_component_configs = {
-        indent = {
-          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-          expander_collapsed = "",
-          expander_expanded = "",
-          expander_highlight = "NeoTreeExpander",
-        },
-        git_status = {
-          symbols = {
-            unstaged = "󰄱",
-            staged = "󰱒",
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      local function on_move(data)
-        Snacks.rename.on_rename_file(data.source, data.destination)
-      end
-
-      local events = require("neo-tree.events")
-      opts.event_handlers = opts.event_handlers or {}
-      vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_move },
-        { event = events.FILE_RENAMED, handler = on_move },
-      })
-      require("neo-tree").setup(opts)
-      vim.api.nvim_create_autocmd("TermClose", {
-        pattern = "*lazygit",
-        callback = function()
-          if package.loaded["neo-tree.sources.git_status"] then
-            require("neo-tree.sources.git_status").refresh()
-          end
-        end,
-      })
-    end,
-  },
   -- Pretty tab-line
   {
     'romgrk/barbar.nvim',
@@ -408,6 +250,7 @@ return {
     },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
+      animation = false,
       sidebar_filetypes = {
         -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
         NvimTree = true,

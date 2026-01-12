@@ -12,14 +12,14 @@ map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
--- Move lines up and down using "Alt" + "j" / "k" in normal, insert and visual
--- modes.
-vim.keymap.set("n", "<m-j>", "<cmd>m .+1<cr>==")
-vim.keymap.set("n", "<m-k>", "<cmd>m .-2<cr>==")
-vim.keymap.set("i", "<m-j>", "<esc><cmd>m .+1<cr>==gi")
-vim.keymap.set("i", "<m-k>", "<esc><cmd>m .-2<cr>==gi")
-vim.keymap.set("v", "<m-j>", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "<m-k>", ":m '<-2<cr>gv=gv")
+-- Move lines up and down using "Alt" + "j" / "k" in normal and visual
+-- modes, and "Ctrl + Up/Down" in insert mode.
+map("n", "<m-j>", "<cmd>m .+1<cr>==")
+map("n", "<m-k>", "<cmd>m .-2<cr>==")
+map("i", "<C-Down>", "<esc><cmd>m .+1<cr>==gi")
+map("i", "<C-Up>", "<esc><cmd>m .-2<cr>==gi")
+map("v", "<m-j>", ":m '>+1<cr>gv=gv")
+map("v", "<m-k>", ":m '<-2<cr>gv=gv")
 
 -- Toggle options
 Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

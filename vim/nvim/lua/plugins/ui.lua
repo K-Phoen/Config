@@ -24,7 +24,8 @@ local commands = {
   { name = "Tab: Close", action = ":tabclose" },
   { name = "Tab: New", action = ":tabnew" },
   -- UI
-  { name = "Code: Toogle document symbols", action = "<leader>cs" },
+  { name = "UI: Toogle document symbols", action = "<leader>cs" },
+  { name = "UI: Toogle file explorer", action = "<C-e>" },
   {
     name = "Active scope: Toggle focus",
     action = function()

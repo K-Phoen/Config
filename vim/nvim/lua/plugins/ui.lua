@@ -118,7 +118,7 @@ return {
           lualine_a = {'mode'},
           lualine_b = {'diff', 'diagnostics'},
           lualine_c = {'filename'},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_x = {'encoding', 'lsp_status', 'filetype'},
           lualine_y = {'progress'},
           lualine_z = {'location'}
         },

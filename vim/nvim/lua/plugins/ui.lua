@@ -24,7 +24,7 @@ local commands = {
   { name = "Tab: Close", action = ":tabclose" },
   { name = "Tab: New", action = ":tabnew" },
   -- UI
-  { name = "UI: Toogle document symbols", action = "<leader>cs" },
+  { name = "UI: Toogle symbols outline", action = "<leader>o" },
   { name = "UI: Toogle file explorer", action = "<C-e>" },
   {
     name = "Active scope: Toggle focus",
@@ -116,6 +116,45 @@ return {
     event = "VeryLazy",
     opts = {
       preset = "modern",
+      spec = {
+        {
+          mode = { "n", "x" },
+          -- TODO: cleanup groups + make keymaps consistent with them
+          --{ "<leader><tab>", group = "tabs" },
+          --{ "<leader>c", group = "code" },
+          --{ "<leader>d", group = "debug" },
+          --{ "<leader>dp", group = "profiler" },
+          --{ "<leader>f", group = "file/find" },
+          --{ "<leader>g", group = "git" },
+          --{ "<leader>gh", group = "hunks" },
+          --{ "<leader>q", group = "quit/session" },
+          --{ "<leader>s", group = "search" },
+          --{ "<leader>u", group = "ui" },
+          --{ "<leader>x", group = "diagnostics/quickfix" },
+          --{ "[", group = "prev" },
+          --{ "]", group = "next" },
+          --{ "g", group = "goto" },
+          --{ "gs", group = "surround" },
+          --{ "z", group = "fold" },
+          --{
+            --"<leader>b",
+            --group = "buffer",
+            --expand = function()
+              --return require("which-key.extras").expand.buf()
+            --end,
+          --},
+          --{
+            --"<leader>w",
+            --group = "windows",
+            --proxy = "<c-w>",
+            --expand = function()
+              --return require("which-key.extras").expand.win()
+            --end,
+          --},
+          ---- better descriptions
+          --{ "gx", desc = "Open with system app" },
+        },
+      },
     },
     keys = {
       {
@@ -205,42 +244,16 @@ return {
       "MunifTanjim/nui.nvim", -- used for proper rendering and multiple views
     },
   },
-  -- Diagnostics, references, ...
+  -- Symbols outline
   {
-    "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
     },
   },
 }

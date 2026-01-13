@@ -1,4 +1,45 @@
 return {
+  -- Treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
+    event = { "VeryLazy" },
+    cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
+    opts_extend = { "ensure_installed" },
+    opts = {
+      indent = { enable = true }, ---@type lazyvim.TSFeat
+      highlight = { enable = true }, ---@type lazyvim.TSFeat
+      folds = { enable = true }, ---@type lazyvim.TSFeat
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "printf",
+        "python",
+        "query",
+        "regex",
+        "rust",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "xml",
+        "yaml",
+      },
+    },
+  },
   -- Adjust tab width based on the current file
   {
     "tpope/vim-sleuth",

@@ -14,56 +14,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
       -- Add additional keymaps to the default LSP keymaps.
       --
       -- See: https://neovim.io/doc/user/lsp.html#_global-defaults
-      vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = buffer })
-      vim.keymap.set("n", "grq", vim.diagnostic.setqflist, { buffer = buffer })
+      vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = buffer, desc = "Format buffer" })
       vim.keymap.set("n", "gry", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-      end, { buffer = buffer })
-      vim.keymap.set("n", "gd", function()
-        vim.lsp.buf.definition()
-      end, { buffer = buffer })
+      end, { buffer = buffer, desc = "Toggle inlay hints" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = buffer, desc = "Go to definition" })
       vim.keymap.set("n", "gD", function()
         vim.cmd([[ vsplit ]])
         vim.lsp.buf.definition()
-      end, { buffer = buffer })
-      
-      -- Enable completion.
-      if
-        client:supports_method(vim.lsp.protocol.Methods.textDocument_completion)
-      then
-        vim.lsp.completion.enable(
-          true,
-          client.id,
-          buffer,
-          { autotrigger = true }
-        )
-        vim.keymap.set("i", "<c-space>", function()
-          vim.lsp.completion.get()
-        end)
-      end
-
-      -- Enable inline completions.
-      if
-        client:supports_method(
-          vim.lsp.protocol.Methods.textDocument_inlineCompletion
-        )
-      then
-        vim.lsp.inline_completion.enable(true)
-        vim.keymap.set("i", "<c-cr>", function()
-          if not vim.lsp.inline_completion.get() then
-            return "<c-cr>"
-          end
-        end, {
-          expr = true,
-          replace_keycodes = true,
-        })
-      end
+      end, { buffer = buffer, desc = "Go to definition (vsplit)" })
 
       -- Add normal-mode keymappings for signature help.
       if client:supports_method("textDocument/signatureHelp") then
         vim.keymap.set("n", "<c-s>", function()
           vim.lsp.buf.signature_help()
-        end)
+        end, { desc = "Show signature help" })
       end
 
       -- Auto-format on save.

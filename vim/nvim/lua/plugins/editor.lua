@@ -1,3 +1,4 @@
+-- TODO: https://github.com/mrcjkb/rustaceanvim?
 return {
   -- Treesitter
   {
@@ -8,23 +9,24 @@ return {
     cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
     opts_extend = { "ensure_installed" },
     opts = {
-      indent = { enable = true }, ---@type lazyvim.TSFeat
-      highlight = { enable = true }, ---@type lazyvim.TSFeat
-      folds = { enable = true }, ---@type lazyvim.TSFeat
+      indent = { enable = true },
+      highlight = { enable = true },
+      folds = { enable = false },
       ensure_installed = {
         "bash",
         "c",
         "diff",
+        "go",
         "html",
         "javascript",
         "jsdoc",
         "json",
-        "jsonc",
         "lua",
         "luadoc",
         "luap",
         "markdown",
         "markdown_inline",
+        "php",
         "printf",
         "python",
         "query",
@@ -39,6 +41,29 @@ return {
         "yaml",
       },
     },
+    config = function(_, opts)
+      local TS = require("nvim-treesitter")
+      TS.install(opts.ensure_installed)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = opts.ensure_installed,
+        callback = function()
+          -- syntax highlighting, provided by Neovim
+          if opts.highlight.enable then
+            vim.treesitter.start()
+          end
+          -- folds
+          if opts.folds.enable then
+            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo.foldmethod = 'expr'
+          end
+          -- indentation
+          if opts.folds.indent then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
   },
   -- Adjust tab width based on the current file
   {

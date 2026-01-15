@@ -18,16 +18,14 @@ local commands = {
   { name = "Git: Branches", action = function() Snacks.picker.git_branches() end },
   { name = "Git: Status", action = function() Snacks.picker.git_status() end },
   { name = "Git: Diff", action = function() Snacks.picker.git_diff() end },
-  -- Shortcuts
+  -- Config shortcuts
   { name = "Config: Edit", action = function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end },
-  { name = "Lazy: Open dashboard", action = ":Lazy" },
-  { name = "Tab: Close", action = ":tabclose" },
-  { name = "Tab: New", action = ":tabnew" },
+  { name = "Config: Lazy", action = ":Lazy" },
   -- UI
   { name = "UI: Toogle symbols outline", action = "<leader>o" },
   { name = "UI: Toogle file explorer", action = "<C-e>" },
   {
-    name = "Active scope: Toggle focus",
+    name = "UI: Toggle dimming",
     action = function()
       local snacks_dim = require("snacks").dim
       if snacks_dim.enabled then
@@ -116,43 +114,36 @@ return {
     event = "VeryLazy",
     opts = {
       preset = "modern",
+      defaults = {},
       spec = {
         {
           mode = { "n", "x" },
-          -- TODO: cleanup groups + make keymaps consistent with them
-          --{ "<leader><tab>", group = "tabs" },
-          --{ "<leader>c", group = "code" },
-          --{ "<leader>d", group = "debug" },
-          --{ "<leader>dp", group = "profiler" },
-          --{ "<leader>f", group = "file/find" },
-          --{ "<leader>g", group = "git" },
-          --{ "<leader>gh", group = "hunks" },
-          --{ "<leader>q", group = "quit/session" },
-          --{ "<leader>s", group = "search" },
-          --{ "<leader>u", group = "ui" },
-          --{ "<leader>x", group = "diagnostics/quickfix" },
-          --{ "[", group = "prev" },
-          --{ "]", group = "next" },
-          --{ "g", group = "goto" },
-          --{ "gs", group = "surround" },
-          --{ "z", group = "fold" },
-          --{
-            --"<leader>b",
-            --group = "buffer",
-            --expand = function()
-              --return require("which-key.extras").expand.buf()
-            --end,
-          --},
-          --{
-            --"<leader>w",
-            --group = "windows",
-            --proxy = "<c-w>",
-            --expand = function()
-              --return require("which-key.extras").expand.win()
-            --end,
-          --},
-          ---- better descriptions
-          --{ "gx", desc = "Open with system app" },
+          { "<leader>c", group = "code" },
+          { "<leader>g", group = "git" },
+          { "<leader>gh", group = "hunks" },
+          { "<leader>u", group = "ui" },
+          { "[", group = "prev" },
+          { "]", group = "next" },
+          { "g", group = "goto" },
+          { "gs", group = "surround" },
+          { "z", group = "fold" },
+          {
+            "<leader>b",
+            group = "buffer",
+            expand = function()
+              return require("which-key.extras").expand.buf()
+            end,
+          },
+          {
+            "<leader>w",
+            group = "windows",
+            proxy = "<c-w>",
+            expand = function()
+              return require("which-key.extras").expand.win()
+            end,
+          },
+          -- better descriptions
+          { "gx", desc = "Open with system app" },
         },
       },
     },
@@ -160,9 +151,9 @@ return {
       {
         "<leader>?",
         function()
-          require("which-key").show({ global = false })
+          require("which-key").show({ global = true })
         end,
-        desc = "Buffer Local Keymaps (which-key)",
+        desc = "Global Keymaps (which-key)",
       },
     },
   },

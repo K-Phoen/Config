@@ -15,6 +15,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       --
       -- See: https://neovim.io/doc/user/lsp.html#_global-defaults
       vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = buffer, desc = "Format buffer" })
+      vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { buffer = buffer, desc = "Code actions" })
+      vim.keymap.set("n", "<c-f>", vim.lsp.buf.code_action, { desc = "Code actions" })
+      vim.keymap.set("n", "gre", vim.diagnostic.goto_next, { buffer = buffer, desc = "Go to next diagnostic" })
+      vim.keymap.set("n", "grp", vim.diagnostic.goto_prev, { buffer = buffer, desc = "Go to previous diagnostic" })
+      vim.keymap.set("n", "<c-d>", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
       vim.keymap.set("n", "gry", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end, { buffer = buffer, desc = "Toggle inlay hints" })

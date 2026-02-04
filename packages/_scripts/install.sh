@@ -21,6 +21,7 @@ pamac install \
     direnv \
     stern \
     tree \
+    tree-sitter-cli \
     obsidian
 
 sudo usermod -aG docker ${USER}

@@ -15,7 +15,10 @@ vim.opt.scrolloff = 4         -- Lines of context when scrolling
 vim.opt.conceallevel = 2      -- Hide * markup for bold and italic, but not markers with substitutions
 
 vim.opt.list = true
-vim.opt.listchars = { nbsp = "·" }
+vim.opt.listchars = {
+  nbsp = "·",
+  tab = "·┈",
+}
 
 -- Enable inline diagnostics
 vim.diagnostic.config({ virtual_text = true })

@@ -2,6 +2,7 @@
 vim.lsp.enable({
   "cue",
   "gopls",
+  "pyright",
   "rust_analyzer",
 })
 

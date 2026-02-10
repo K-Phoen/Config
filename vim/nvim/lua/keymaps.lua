@@ -1,5 +1,9 @@
 local map = vim.keymap.set
 
+-- Pull word under cursor into LHS of a substitute (for quick search and
+-- replace)
+map("n", "<leader>r", ":%s/<C-r>=expand(\"<cword>\")<CR>/", { desc = "Replace word under cursor" })
+
 -- Clear search on escape
 map({ "i", "n", "s" }, "<esc>", function()
   vim.cmd("noh")
